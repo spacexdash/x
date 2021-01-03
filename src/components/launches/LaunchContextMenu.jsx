@@ -1,10 +1,11 @@
 import React from 'react';
 import { Nav } from 'react-bootstrap';
 import {
-    LAUNCH_PAGE_CONTEXT_CREW, LAUNCH_PAGE_CONTEXT_PAYLOAD, LAUNCH_PAGE_CONTEXT_ROCKET, LAUNCH_PAGE_CONTEXT_LAUNCHPAD,
+    LAUNCH_PAGE_CONTEXT_MISSION_GALERY,LAUNCH_PAGE_CONTEXT_CREW, LAUNCH_PAGE_CONTEXT_PAYLOAD, LAUNCH_PAGE_CONTEXT_ROCKET, LAUNCH_PAGE_CONTEXT_LAUNCHPAD,
     LAUNCH_PAGE_CONTEXT_SHIPS, LAUNCH_PAGE_CONTEXT_CORES, LAUNCH_PAGE_CONTEXT_LANDINGZONE
 } from './LaunchConsts';
 const ITEMS = [
+    LAUNCH_PAGE_CONTEXT_MISSION_GALERY,
     LAUNCH_PAGE_CONTEXT_CORES,
     LAUNCH_PAGE_CONTEXT_ROCKET,
     LAUNCH_PAGE_CONTEXT_CREW,
@@ -14,6 +15,7 @@ const ITEMS = [
     LAUNCH_PAGE_CONTEXT_SHIPS,
 ];
 const ITEM_CONDITIONS = {
+    [LAUNCH_PAGE_CONTEXT_MISSION_GALERY]: (launch) => "flickr" in launch.links  && launch.links.flickr.original.length > 0,
     [LAUNCH_PAGE_CONTEXT_CREW]: (launch) => "crew" in launch && Array.isArray(launch.crew) && launch.crew.length > 0, // needs query changes
     [LAUNCH_PAGE_CONTEXT_ROCKET]: (launch) => "rocket" in launch && typeof launch.rocket === "object",
     [LAUNCH_PAGE_CONTEXT_CORES]: (launch) => "cores" in launch && typeof Array.isArray(launch.cores) && launch.cores.length > 0,
