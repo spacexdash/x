@@ -1,0 +1,1213 @@
+{
+    "docs": [
+        {
+            "fairings": {
+                "reused": false,
+                "recovery_attempt": true,
+                "recovered": true,
+                "ships": [
+                    "5ea6ed2e080df4000697c908"
+                ]
+            },
+            "links": {
+                "patch": {
+                    "small": "https://images2.imgbox.com/b0/23/BvwaqoS0_o.png",
+                    "large": "https://images2.imgbox.com/18/17/gCjLjHbl_o.png"
+                },
+                "reddit": {
+                    "campaign": "https://www.reddit.com/r/spacex/comments/bw6aa8/stp2_launch_campaign_thread/",
+                    "launch": "https://www.reddit.com/r/spacex/comments/c40a29/rspacex_stp2_official_launch_discussion_updates",
+                    "media": "https://www.reddit.com/r/spacex/comments/c4ng3a/rspacex_stp2_media_thread_videos_images_gifs",
+                    "recovery": null
+                },
+                "flickr": {
+                    "small": [],
+                    "original": [
+                        "https://live.staticflickr.com/65535/48129211778_83c1769305_o.jpg",
+                        "https://live.staticflickr.com/65535/48129211908_8390c775b0_o.jpg",
+                        "https://live.staticflickr.com/65535/48129182836_fd53e5646b_o.jpg",
+                        "https://live.staticflickr.com/65535/48129269897_22d854be5c_o.jpg",
+                        "https://live.staticflickr.com/65535/48129182631_572051790c_o.jpg",
+                        "https://live.staticflickr.com/65535/48129211693_d23b0287f1_o.jpg",
+                        "https://live.staticflickr.com/65535/48129269942_eb9b5c25bc_o.jpg"
+                    ]
+                },
+                "presskit": "https://www.spacex.com/sites/spacex/files/stp-2_press_kit.pdf",
+                "webcast": "https://youtu.be/WxH4CAlhtiQ",
+                "youtube_id": "WxH4CAlhtiQ",
+                "article": "https://spaceflightnow.com/2019/06/25/falcon-heavy-launches-on-military-led-rideshare-mission-boat-catches-fairing",
+                "wikipedia": "https://en.wikipedia.org/wiki/Space_Test_Program"
+            },
+            "static_fire_date_utc": "2019-06-19T21:52:00.000Z",
+            "static_fire_date_unix": 1560981120,
+            "tbd": false,
+            "net": false,
+            "window": 14400,
+            "rocket": {
+                "height": {
+                    "meters": 70,
+                    "feet": 229.6
+                },
+                "diameter": {
+                    "meters": 12.2,
+                    "feet": 39.9
+                },
+                "mass": {
+                    "kg": 1420788,
+                    "lb": 3125735
+                },
+                "first_stage": {
+                    "thrust_sea_level": {
+                        "kN": 22819,
+                        "lbf": 5130000
+                    },
+                    "thrust_vacuum": {
+                        "kN": 24681,
+                        "lbf": 5548500
+                    },
+                    "reusable": true,
+                    "engines": 27,
+                    "fuel_amount_tons": 1155,
+                    "burn_time_sec": 162
+                },
+                "second_stage": {
+                    "thrust": {
+                        "kN": 934,
+                        "lbf": 210000
+                    },
+                    "payloads": {
+                        "composite_fairing": {
+                            "height": {
+                                "meters": 13.1,
+                                "feet": 43
+                            },
+                            "diameter": {
+                                "meters": 5.2,
+                                "feet": 17.1
+                            }
+                        },
+                        "option_1": "dragon"
+                    },
+                    "reusable": false,
+                    "engines": 1,
+                    "fuel_amount_tons": 90,
+                    "burn_time_sec": 397
+                },
+                "engines": {
+                    "isp": {
+                        "sea_level": 288,
+                        "vacuum": 312
+                    },
+                    "thrust_sea_level": {
+                        "kN": 845,
+                        "lbf": 190000
+                    },
+                    "thrust_vacuum": {
+                        "kN": 914,
+                        "lbf": 205500
+                    },
+                    "number": 27,
+                    "type": "merlin",
+                    "version": "1D+",
+                    "layout": "octaweb",
+                    "engine_loss_max": 6,
+                    "propellant_1": "liquid oxygen",
+                    "propellant_2": "RP-1 kerosene",
+                    "thrust_to_weight": 180.1
+                },
+                "landing_legs": {
+                    "number": 12,
+                    "material": "carbon fiber"
+                },
+                "payload_weights": [
+                    {
+                        "id": "leo",
+                        "name": "Low Earth Orbit",
+                        "kg": 63800,
+                        "lb": 140660
+                    },
+                    {
+                        "id": "gto",
+                        "name": "Geosynchronous Transfer Orbit",
+                        "kg": 26700,
+                        "lb": 58860
+                    },
+                    {
+                        "id": "mars",
+                        "name": "Mars Orbit",
+                        "kg": 16800,
+                        "lb": 37040
+                    },
+                    {
+                        "id": "pluto",
+                        "name": "Pluto Orbit",
+                        "kg": 3500,
+                        "lb": 7720
+                    }
+                ],
+                "flickr_images": [
+                    "https://farm5.staticflickr.com/4599/38583829295_581f34dd84_b.jpg",
+                    "https://farm5.staticflickr.com/4645/38583830575_3f0f7215e6_b.jpg",
+                    "https://farm5.staticflickr.com/4696/40126460511_b15bf84c85_b.jpg",
+                    "https://farm5.staticflickr.com/4711/40126461411_aabc643fd8_b.jpg"
+                ],
+                "name": "Falcon Heavy",
+                "type": "rocket",
+                "active": true,
+                "stages": 2,
+                "boosters": 2,
+                "cost_per_launch": 90000000,
+                "success_rate_pct": 100,
+                "first_flight": "2018-02-06",
+                "country": "United States",
+                "company": "SpaceX",
+                "wikipedia": "https://en.wikipedia.org/wiki/Falcon_Heavy",
+                "description": "With the ability to lift into orbit over 54 metric tons (119,000 lb)--a mass equivalent to a 737 jetliner loaded with passengers, crew, luggage and fuel--Falcon Heavy can lift more than twice the payload of the next closest operational vehicle, the Delta IV Heavy, at one-third the cost.",
+                "id": "5e9d0d95eda69974db09d1ed"
+            },
+            "success": true,
+            "details": "Space Test Program 2 is a rideshare managed by the U.S. Air Force Space and Missile Systems Center (SMC), launching from LC-39A, KSC. Most of the spacecraft will be delivered into low Earth orbit (LEO) in two deployment sequences separated by a second stage burn. These LEO payloads include the six Taiwan and United States owned COSMIC-2 microsatellites, the Planetary Society's LightSail-B demonstrator cubesat, and others. The third and final deployment will be the Air Force Research Lab's DSX spacecraft, which will be delivered to a medium Earth orbit (MEO). This mission will reuse the side cores from Arabsat 6A, which will return to LZ-1, and LZ-2. The new center core will boost back to land on OCISLY less than 40 km from the launch site.",
+            "crew": [],
+            "ships": [
+                {
+                    "legacy_id": "OCISLY",
+                    "model": "Marmac 304",
+                    "type": "Barge",
+                    "roles": [
+                        "ASDS barge"
+                    ],
+                    "imo": null,
+                    "mmsi": null,
+                    "abs": null,
+                    "class": null,
+                    "mass_kg": null,
+                    "mass_lbs": null,
+                    "year_built": 2015,
+                    "home_port": "Port Canaveral",
+                    "status": null,
+                    "speed_kn": null,
+                    "course_deg": null,
+                    "latitude": null,
+                    "longitude": null,
+                    "last_ais_update": null,
+                    "link": null,
+                    "image": "https://i.imgur.com/28dCx6G.jpg",
+                    "launches": [
+                        "5eb87cf2ffd86e000604b344",
+                        "5eb87cf3ffd86e000604b345",
+                        "5eb87cf6ffd86e000604b347",
+                        "5eb87cf8ffd86e000604b348",
+                        "5eb87cfaffd86e000604b34a",
+                        "5eb87d00ffd86e000604b34f",
+                        "5eb87d04ffd86e000604b353",
+                        "5eb87d0cffd86e000604b35a",
+                        "5eb87d0dffd86e000604b35b",
+                        "5eb87d13ffd86e000604b360",
+                        "5eb87d18ffd86e000604b365",
+                        "5eb87d19ffd86e000604b366",
+                        "5eb87d1effd86e000604b36a",
+                        "5eb87d20ffd86e000604b36c",
+                        "5eb87d22ffd86e000604b36d",
+                        "5eb87d24ffd86e000604b36f",
+                        "5eb87d2affd86e000604b374",
+                        "5eb87d2bffd86e000604b375",
+                        "5eb87d2dffd86e000604b376",
+                        "5eb87d2effd86e000604b377",
+                        "5eb87d30ffd86e000604b378",
+                        "5eb87d35ffd86e000604b37a",
+                        "5eb87d39ffd86e000604b37d",
+                        "5eb87d3bffd86e000604b37f",
+                        "5eb87d3cffd86e000604b380",
+                        "5eb87d3fffd86e000604b382",
+                        "5eb87d41ffd86e000604b383",
+                        "5eb87d43ffd86e000604b385",
+                        "5eb87d44ffd86e000604b386",
+                        "5eb87d46ffd86e000604b388",
+                        "5ed9819a1f30554030d45c29",
+                        "5ed981d91f30554030d45c2a",
+                        "5ef6a2090059c33cee4a828b",
+                        "5ef6a2bf0059c33cee4a828c",
+                        "5eb87d4cffd86e000604b38d",
+                        "5fb95b3f3a88ae63c954603c",
+                        "5eb87d4effd86e000604b391"
+                    ],
+                    "name": "Of Course I Still Love You",
+                    "active": true,
+                    "id": "5ea6ed30080df4000697c913"
+                },
+                {
+                    "legacy_id": "GOQUEST",
+                    "model": null,
+                    "type": "Cargo",
+                    "roles": [
+                        "Support Ship"
+                    ],
+                    "imo": 1155515,
+                    "mmsi": 367564890,
+                    "abs": null,
+                    "class": null,
+                    "mass_kg": null,
+                    "mass_lbs": null,
+                    "year_built": 2014,
+                    "home_port": "Port Canaveral",
+                    "status": "",
+                    "speed_kn": null,
+                    "course_deg": null,
+                    "latitude": null,
+                    "longitude": null,
+                    "last_ais_update": null,
+                    "link": "https://www.marinetraffic.com/en/ais/details/ships/shipid:450521/mmsi:367564890/imo:1155515/vessel:GO_QUEST",
+                    "image": "https://i.imgur.com/ABXtHKa.jpg",
+                    "launches": [
+                        "5eb87ce8ffd86e000604b33c",
+                        "5eb87ceaffd86e000604b33d",
+                        "5eb87cecffd86e000604b33f",
+                        "5eb87ceeffd86e000604b341",
+                        "5eb87cf2ffd86e000604b344",
+                        "5eb87cf3ffd86e000604b345",
+                        "5eb87cf5ffd86e000604b346",
+                        "5eb87cf6ffd86e000604b347",
+                        "5eb87cf8ffd86e000604b348",
+                        "5eb87cf9ffd86e000604b349",
+                        "5eb87cfaffd86e000604b34a",
+                        "5eb87d00ffd86e000604b34f",
+                        "5eb87d04ffd86e000604b353",
+                        "5eb87d09ffd86e000604b358",
+                        "5eb87d0cffd86e000604b35a",
+                        "5eb87d11ffd86e000604b35f",
+                        "5eb87d18ffd86e000604b365",
+                        "5eb87d19ffd86e000604b366",
+                        "5eb87d1effd86e000604b36a",
+                        "5eb87d22ffd86e000604b36d",
+                        "5eb87d26ffd86e000604b371",
+                        "5eb87d2dffd86e000604b376",
+                        "5eb87d2effd86e000604b377",
+                        "5eb87d30ffd86e000604b378",
+                        "5eb87d35ffd86e000604b37a",
+                        "5eb87d3cffd86e000604b380",
+                        "5eb87d3fffd86e000604b382",
+                        "5eb87d41ffd86e000604b383",
+                        "5eb87d46ffd86e000604b388",
+                        "5eb87d46ffd86e000604b389",
+                        "5eb87d50ffd86e000604b394",
+                        "5ed981d91f30554030d45c2a",
+                        "5ef6a1e90059c33cee4a828a",
+                        "5ef6a2090059c33cee4a828b",
+                        "5ef6a2bf0059c33cee4a828c",
+                        "5ef6a2e70059c33cee4a8293",
+                        "5eb87d4dffd86e000604b38e",
+                        "5fb95b3f3a88ae63c954603c",
+                        "5eb87d4effd86e000604b391"
+                    ],
+                    "name": "GO Quest",
+                    "active": true,
+                    "id": "5ea6ed2f080df4000697c90b"
+                },
+                {
+                    "legacy_id": "GONAVIGATOR",
+                    "model": null,
+                    "type": "Cargo",
+                    "roles": [
+                        "Support Ship",
+                        "Fairing Recovery"
+                    ],
+                    "imo": 9566887,
+                    "mmsi": 367550000,
+                    "abs": 1221524,
+                    "class": 9204358,
+                    "mass_kg": 451778,
+                    "mass_lbs": 996000,
+                    "year_built": 2009,
+                    "home_port": "Port Canaveral",
+                    "status": "",
+                    "speed_kn": null,
+                    "course_deg": null,
+                    "latitude": null,
+                    "longitude": null,
+                    "last_ais_update": null,
+                    "link": "https://www.marinetraffic.com/en/ais/details/ships/shipid:452540/mmsi:367550000/imo:9566887/vessel:GO_NAVIGATOR",
+                    "image": "https://i.imgur.com/MjNWzhO.jpg",
+                    "launches": [
+                        "5eb87d2dffd86e000604b376",
+                        "5eb87d30ffd86e000604b378",
+                        "5eb87d35ffd86e000604b37a",
+                        "5eb87d37ffd86e000604b37c",
+                        "5eb87d39ffd86e000604b37d",
+                        "5eb87d3cffd86e000604b380",
+                        "5eb87d46ffd86e000604b388",
+                        "5eb87d4dffd86e000604b38e"
+                    ],
+                    "name": "GO Navigator",
+                    "active": true,
+                    "id": "5ea6ed2e080df4000697c909"
+                },
+                {
+                    "legacy_id": "GOMSTREE",
+                    "model": null,
+                    "type": "High Speed Craft",
+                    "roles": [
+                        "Fairing Recovery"
+                    ],
+                    "imo": 9744465,
+                    "mmsi": 368059550,
+                    "abs": 1249191,
+                    "class": 15252765,
+                    "mass_kg": 449964,
+                    "mass_lbs": 992000,
+                    "year_built": 2015,
+                    "home_port": "Port Canaveral",
+                    "status": "",
+                    "speed_kn": null,
+                    "course_deg": null,
+                    "latitude": null,
+                    "longitude": null,
+                    "last_ais_update": null,
+                    "link": "https://www.marinetraffic.com/en/ais/details/ships/shipid:3439091/mmsi:368099550/imo:9744465/vessel:GO_MS_TREE",
+                    "image": "https://i.imgur.com/MtEgYbY.jpg",
+                    "launches": [
+                        "5eb87d0dffd86e000604b35b",
+                        "5eb87d0fffd86e000604b35d",
+                        "5eb87d14ffd86e000604b361",
+                        "5eb87d16ffd86e000604b363",
+                        "5eb87d1affd86e000604b367",
+                        "5eb87d1fffd86e000604b36b",
+                        "5eb87d25ffd86e000604b370",
+                        "5eb87d35ffd86e000604b37a",
+                        "5eb87d37ffd86e000604b37c",
+                        "5eb87d39ffd86e000604b37d",
+                        "5eb87d3bffd86e000604b37f",
+                        "5eb87d3cffd86e000604b380",
+                        "5eb87d3fffd86e000604b382",
+                        "5eb87d41ffd86e000604b383",
+                        "5eb87d44ffd86e000604b386",
+                        "5eb87d45ffd86e000604b387",
+                        "5eb87d46ffd86e000604b389",
+                        "5eb87d50ffd86e000604b394",
+                        "5ed9819a1f30554030d45c29",
+                        "5ed981d91f30554030d45c2a",
+                        "5ef6a1e90059c33cee4a828a",
+                        "5ef6a2090059c33cee4a828b",
+                        "5ef6a2bf0059c33cee4a828c",
+                        "5ef6a2e70059c33cee4a8293",
+                        "5f8399fb818d8b59f5740d43"
+                    ],
+                    "name": "GO Ms Tree",
+                    "active": true,
+                    "id": "5ea6ed2e080df4000697c908"
+                },
+                {
+                    "legacy_id": "HOLLYWOOD",
+                    "model": null,
+                    "type": "Tug",
+                    "roles": [
+                        "ASDS Tug"
+                    ],
+                    "imo": 8428674,
+                    "mmsi": 366955620,
+                    "abs": null,
+                    "class": null,
+                    "mass_kg": 320236,
+                    "mass_lbs": 706000,
+                    "year_built": 1985,
+                    "home_port": "Fort Lauderdale",
+                    "status": "",
+                    "speed_kn": null,
+                    "course_deg": null,
+                    "latitude": null,
+                    "longitude": null,
+                    "last_ais_update": null,
+                    "link": "https://www.marinetraffic.com/en/ais/details/ships/shipid:430344/mmsi:367648150/imo:8428674/vessel:CAITLIN",
+                    "image": "https://photos.marinetraffic.com/ais/showphoto.aspx?photoid=3406596",
+                    "launches": [
+                        "5eb87d2dffd86e000604b376",
+                        "5eb87d2effd86e000604b377",
+                        "5eb87d30ffd86e000604b378",
+                        "5eb87d35ffd86e000604b37a"
+                    ],
+                    "name": "Hollywood",
+                    "active": true,
+                    "id": "5ea6ed2f080df4000697c90e"
+                }
+            ],
+            "capsules": [],
+            "payloads": [
+                {
+                    "dragon": {
+                        "capsule": null,
+                        "mass_returned_kg": null,
+                        "mass_returned_lbs": null,
+                        "flight_time_sec": null,
+                        "manifest": null,
+                        "water_landing": null,
+                        "land_landing": null
+                    },
+                    "name": "DSX",
+                    "type": "Satellite",
+                    "reused": false,
+                    "launch": "5eb87d35ffd86e000604b37a",
+                    "customers": [
+                        "USAF"
+                    ],
+                    "norad_ids": [
+                        44344
+                    ],
+                    "nationalities": [
+                        "United States"
+                    ],
+                    "manufacturers": [
+                        "Sierra Nevada Corporation"
+                    ],
+                    "mass_kg": 600,
+                    "mass_lbs": 1322.77,
+                    "orbit": "MEO",
+                    "reference_system": "geocentric",
+                    "regime": "medium-earth",
+                    "longitude": null,
+                    "semi_major_axis_km": 15397.816,
+                    "eccentricity": 0.1973422,
+                    "periapsis_km": 5981.042,
+                    "apoapsis_km": 12058.32,
+                    "inclination_deg": 42.3307,
+                    "period_min": 316.919,
+                    "lifespan_years": null,
+                    "epoch": "2021-01-02T06:56:38.000Z",
+                    "mean_motion": 4.54374599,
+                    "raan": 359.83,
+                    "arg_of_pericenter": 239.4896,
+                    "mean_anomaly": 99.5992,
+                    "id": "5eb0e4ccb6c3bb0006eeb23a"
+                },
+                {
+                    "dragon": {
+                        "capsule": null,
+                        "mass_returned_kg": null,
+                        "mass_returned_lbs": null,
+                        "flight_time_sec": null,
+                        "manifest": null,
+                        "water_landing": null,
+                        "land_landing": null
+                    },
+                    "name": "COSMIC-2",
+                    "type": "Satellite",
+                    "reused": false,
+                    "launch": "5eb87d35ffd86e000604b37a",
+                    "customers": [
+                        "NOAA",
+                        "NASA",
+                        "Taiwan"
+                    ],
+                    "norad_ids": [],
+                    "nationalities": [
+                        "United States"
+                    ],
+                    "manufacturers": [
+                        "National Space Organization"
+                    ],
+                    "mass_kg": 1668,
+                    "mass_lbs": 3677.3,
+                    "orbit": "LEO",
+                    "reference_system": "geocentric",
+                    "regime": "low-earth",
+                    "longitude": null,
+                    "semi_major_axis_km": null,
+                    "eccentricity": null,
+                    "periapsis_km": null,
+                    "apoapsis_km": null,
+                    "inclination_deg": null,
+                    "period_min": null,
+                    "lifespan_years": null,
+                    "epoch": null,
+                    "mean_motion": null,
+                    "raan": null,
+                    "arg_of_pericenter": null,
+                    "mean_anomaly": null,
+                    "id": "5eb0e4ccb6c3bb0006eeb23b"
+                },
+                {
+                    "dragon": {
+                        "capsule": null,
+                        "mass_returned_kg": null,
+                        "mass_returned_lbs": null,
+                        "flight_time_sec": null,
+                        "manifest": null,
+                        "water_landing": null,
+                        "land_landing": null
+                    },
+                    "name": "GPIM",
+                    "type": "Satellite",
+                    "reused": false,
+                    "launch": "5eb87d35ffd86e000604b37a",
+                    "customers": [
+                        "NASA"
+                    ],
+                    "norad_ids": [],
+                    "nationalities": [
+                        "United States"
+                    ],
+                    "manufacturers": [
+                        "Ball Aerospace & Technologies Corp"
+                    ],
+                    "mass_kg": 180,
+                    "mass_lbs": 396,
+                    "orbit": "LEO",
+                    "reference_system": "geocentric",
+                    "regime": "low-earth",
+                    "longitude": null,
+                    "semi_major_axis_km": null,
+                    "eccentricity": null,
+                    "periapsis_km": null,
+                    "apoapsis_km": null,
+                    "inclination_deg": null,
+                    "period_min": null,
+                    "lifespan_years": null,
+                    "epoch": null,
+                    "mean_motion": null,
+                    "raan": null,
+                    "arg_of_pericenter": null,
+                    "mean_anomaly": null,
+                    "id": "5eb0e4ccb6c3bb0006eeb23c"
+                },
+                {
+                    "dragon": {
+                        "capsule": null,
+                        "mass_returned_kg": null,
+                        "mass_returned_lbs": null,
+                        "flight_time_sec": null,
+                        "manifest": null,
+                        "water_landing": null,
+                        "land_landing": null
+                    },
+                    "name": "Oculus-ASR",
+                    "type": "Satellite",
+                    "reused": false,
+                    "launch": "5eb87d35ffd86e000604b37a",
+                    "customers": [
+                        "Michigan Tech"
+                    ],
+                    "norad_ids": [
+                        44356
+                    ],
+                    "nationalities": [
+                        "United States"
+                    ],
+                    "manufacturers": [
+                        "Michigan Tech"
+                    ],
+                    "mass_kg": 70,
+                    "mass_lbs": 154,
+                    "orbit": "LEO",
+                    "reference_system": "geocentric",
+                    "regime": "low-earth",
+                    "longitude": null,
+                    "semi_major_axis_km": 6754.786,
+                    "eccentricity": 0.0149304,
+                    "periapsis_km": 275.799,
+                    "apoapsis_km": 477.502,
+                    "inclination_deg": 28.5096,
+                    "period_min": 92.082,
+                    "lifespan_years": null,
+                    "epoch": "2021-01-02T11:25:45.000Z",
+                    "mean_motion": 15.63814909,
+                    "raan": 40.4396,
+                    "arg_of_pericenter": 102.2817,
+                    "mean_anomaly": 259.4549,
+                    "id": "5eb0e4ccb6c3bb0006eeb23d"
+                },
+                {
+                    "dragon": {
+                        "capsule": null,
+                        "mass_returned_kg": null,
+                        "mass_returned_lbs": null,
+                        "flight_time_sec": null,
+                        "manifest": null,
+                        "water_landing": null,
+                        "land_landing": null
+                    },
+                    "name": "OTB 1",
+                    "type": "Satellite",
+                    "reused": false,
+                    "launch": "5eb87d35ffd86e000604b37a",
+                    "customers": [
+                        "General Atomics"
+                    ],
+                    "norad_ids": [
+                        44341
+                    ],
+                    "nationalities": [
+                        "United States"
+                    ],
+                    "manufacturers": [
+                        "Surrey Satellite Technology-US LLC"
+                    ],
+                    "mass_kg": 138,
+                    "mass_lbs": 304,
+                    "orbit": "LEO",
+                    "reference_system": "geocentric",
+                    "regime": "low-earth",
+                    "longitude": null,
+                    "semi_major_axis_km": 7094.378,
+                    "eccentricity": 0.0011983,
+                    "periapsis_km": 707.741,
+                    "apoapsis_km": 724.744,
+                    "inclination_deg": 23.9985,
+                    "period_min": 99.113,
+                    "lifespan_years": null,
+                    "epoch": "2021-01-02T12:13:12.000Z",
+                    "mean_motion": 14.52885078,
+                    "raan": 299.3371,
+                    "arg_of_pericenter": 160.6175,
+                    "mean_anomaly": 199.4773,
+                    "id": "5eb0e4ccb6c3bb0006eeb23e"
+                },
+                {
+                    "dragon": {
+                        "capsule": null,
+                        "mass_returned_kg": null,
+                        "mass_returned_lbs": null,
+                        "flight_time_sec": null,
+                        "manifest": null,
+                        "water_landing": null,
+                        "land_landing": null
+                    },
+                    "name": "NPSAT 1",
+                    "type": "Satellite",
+                    "reused": false,
+                    "launch": "5eb87d35ffd86e000604b37a",
+                    "customers": [
+                        "Naval Postgrad School"
+                    ],
+                    "norad_ids": [
+                        44340
+                    ],
+                    "nationalities": [
+                        "United States"
+                    ],
+                    "manufacturers": [
+                        "Naval Postgrad School"
+                    ],
+                    "mass_kg": 86,
+                    "mass_lbs": 189,
+                    "orbit": "LEO",
+                    "reference_system": "geocentric",
+                    "regime": "low-earth",
+                    "longitude": null,
+                    "semi_major_axis_km": 7094.671,
+                    "eccentricity": 0.0011666,
+                    "periapsis_km": 708.259,
+                    "apoapsis_km": 724.812,
+                    "inclination_deg": 24.0016,
+                    "period_min": 99.119,
+                    "lifespan_years": null,
+                    "epoch": "2021-01-02T04:47:51.000Z",
+                    "mean_motion": 14.52795094,
+                    "raan": 301.8588,
+                    "arg_of_pericenter": 155.6859,
+                    "mean_anomaly": 204.4184,
+                    "id": "5eb0e4cdb6c3bb0006eeb23f"
+                },
+                {
+                    "dragon": {
+                        "capsule": null,
+                        "mass_returned_kg": null,
+                        "mass_returned_lbs": null,
+                        "flight_time_sec": null,
+                        "manifest": null,
+                        "water_landing": null,
+                        "land_landing": null
+                    },
+                    "name": "Prox-1",
+                    "type": "Satellite",
+                    "reused": false,
+                    "launch": "5eb87d35ffd86e000604b37a",
+                    "customers": [
+                        "Georgia Tech"
+                    ],
+                    "norad_ids": [
+                        44339
+                    ],
+                    "nationalities": [
+                        "United States"
+                    ],
+                    "manufacturers": [
+                        "Georgia Tech"
+                    ],
+                    "mass_kg": 71,
+                    "mass_lbs": 156,
+                    "orbit": "LEO",
+                    "reference_system": "geocentric",
+                    "regime": "low-earth",
+                    "longitude": null,
+                    "semi_major_axis_km": 7093.006,
+                    "eccentricity": 0.0011674,
+                    "periapsis_km": 706.59,
+                    "apoapsis_km": 723.151,
+                    "inclination_deg": 24.0008,
+                    "period_min": 99.084,
+                    "lifespan_years": null,
+                    "epoch": "2021-01-02T11:43:45.000Z",
+                    "mean_motion": 14.53306671,
+                    "raan": 299.2443,
+                    "arg_of_pericenter": 165.9146,
+                    "mean_anomaly": 194.1671,
+                    "id": "5eb0e4cdb6c3bb0006eeb240"
+                },
+                {
+                    "dragon": {
+                        "capsule": null,
+                        "mass_returned_kg": null,
+                        "mass_returned_lbs": null,
+                        "flight_time_sec": null,
+                        "manifest": null,
+                        "water_landing": null,
+                        "land_landing": null
+                    },
+                    "name": "LightSail-B",
+                    "type": "Satellite",
+                    "reused": false,
+                    "launch": "5eb87d35ffd86e000604b37a",
+                    "customers": [
+                        "Planetary Society"
+                    ],
+                    "norad_ids": [
+                        44339
+                    ],
+                    "nationalities": [
+                        "United States"
+                    ],
+                    "manufacturers": [
+                        "Planetary Society"
+                    ],
+                    "mass_kg": 5,
+                    "mass_lbs": 11,
+                    "orbit": "LEO",
+                    "reference_system": "geocentric",
+                    "regime": "low-earth",
+                    "longitude": null,
+                    "semi_major_axis_km": 7093.006,
+                    "eccentricity": 0.0011674,
+                    "periapsis_km": 706.59,
+                    "apoapsis_km": 723.151,
+                    "inclination_deg": 24.0008,
+                    "period_min": 99.084,
+                    "lifespan_years": null,
+                    "epoch": "2021-01-02T11:43:45.000Z",
+                    "mean_motion": 14.53306671,
+                    "raan": 299.2443,
+                    "arg_of_pericenter": 165.9146,
+                    "mean_anomaly": 194.1671,
+                    "id": "5eb0e4cdb6c3bb0006eeb241"
+                },
+                {
+                    "dragon": {
+                        "capsule": null,
+                        "mass_returned_kg": null,
+                        "mass_returned_lbs": null,
+                        "flight_time_sec": null,
+                        "manifest": null,
+                        "water_landing": null,
+                        "land_landing": null
+                    },
+                    "name": "ARMADILLO",
+                    "type": "Satellite",
+                    "reused": false,
+                    "launch": "5eb87d35ffd86e000604b37a",
+                    "customers": [
+                        "University of Texas"
+                    ],
+                    "norad_ids": [],
+                    "nationalities": [
+                        "United States"
+                    ],
+                    "manufacturers": [
+                        "University of Texas"
+                    ],
+                    "mass_kg": 4,
+                    "mass_lbs": 8.8,
+                    "orbit": "LEO",
+                    "reference_system": "geocentric",
+                    "regime": "low-earth",
+                    "longitude": null,
+                    "semi_major_axis_km": null,
+                    "eccentricity": null,
+                    "periapsis_km": null,
+                    "apoapsis_km": null,
+                    "inclination_deg": null,
+                    "period_min": null,
+                    "lifespan_years": null,
+                    "epoch": null,
+                    "mean_motion": null,
+                    "raan": null,
+                    "arg_of_pericenter": null,
+                    "mean_anomaly": null,
+                    "id": "5eb0e4cdb6c3bb0006eeb242"
+                },
+                {
+                    "dragon": {
+                        "capsule": null,
+                        "mass_returned_kg": null,
+                        "mass_returned_lbs": null,
+                        "flight_time_sec": null,
+                        "manifest": null,
+                        "water_landing": null,
+                        "land_landing": null
+                    },
+                    "name": "FalconSat 7",
+                    "type": "Satellite",
+                    "reused": false,
+                    "launch": "5eb87d35ffd86e000604b37a",
+                    "customers": [
+                        "USAF Academy"
+                    ],
+                    "norad_ids": [],
+                    "nationalities": [
+                        "United States"
+                    ],
+                    "manufacturers": [
+                        "USAF Academy"
+                    ],
+                    "mass_kg": 5,
+                    "mass_lbs": 11,
+                    "orbit": "LEO",
+                    "reference_system": "geocentric",
+                    "regime": "low-earth",
+                    "longitude": null,
+                    "semi_major_axis_km": null,
+                    "eccentricity": null,
+                    "periapsis_km": null,
+                    "apoapsis_km": null,
+                    "inclination_deg": null,
+                    "period_min": null,
+                    "lifespan_years": null,
+                    "epoch": null,
+                    "mean_motion": null,
+                    "raan": null,
+                    "arg_of_pericenter": null,
+                    "mean_anomaly": null,
+                    "id": "5eb0e4cdb6c3bb0006eeb243"
+                },
+                {
+                    "dragon": {
+                        "capsule": null,
+                        "mass_returned_kg": null,
+                        "mass_returned_lbs": null,
+                        "flight_time_sec": null,
+                        "manifest": null,
+                        "water_landing": null,
+                        "land_landing": null
+                    },
+                    "name": "E-TBEx A & B",
+                    "type": "Satellite",
+                    "reused": false,
+                    "launch": "5eb87d35ffd86e000604b37a",
+                    "customers": [
+                        "SRI International"
+                    ],
+                    "norad_ids": [],
+                    "nationalities": [
+                        "United States"
+                    ],
+                    "manufacturers": [
+                        "SRI International"
+                    ],
+                    "mass_kg": 4,
+                    "mass_lbs": 8.8,
+                    "orbit": "LEO",
+                    "reference_system": "geocentric",
+                    "regime": "low-earth",
+                    "longitude": null,
+                    "semi_major_axis_km": null,
+                    "eccentricity": null,
+                    "periapsis_km": null,
+                    "apoapsis_km": null,
+                    "inclination_deg": null,
+                    "period_min": null,
+                    "lifespan_years": null,
+                    "epoch": null,
+                    "mean_motion": null,
+                    "raan": null,
+                    "arg_of_pericenter": null,
+                    "mean_anomaly": null,
+                    "id": "5eb0e4cdb6c3bb0006eeb244"
+                },
+                {
+                    "dragon": {
+                        "capsule": null,
+                        "mass_returned_kg": null,
+                        "mass_returned_lbs": null,
+                        "flight_time_sec": null,
+                        "manifest": null,
+                        "water_landing": null,
+                        "land_landing": null
+                    },
+                    "name": "PSat 2",
+                    "type": "Satellite",
+                    "reused": false,
+                    "launch": "5eb87d35ffd86e000604b37a",
+                    "customers": [
+                        "US Naval Academy"
+                    ],
+                    "norad_ids": [
+                        44357
+                    ],
+                    "nationalities": [
+                        "United States"
+                    ],
+                    "manufacturers": [
+                        "US Naval Academy"
+                    ],
+                    "mass_kg": 2,
+                    "mass_lbs": 4.4,
+                    "orbit": "LEO",
+                    "reference_system": "geocentric",
+                    "regime": "low-earth",
+                    "longitude": null,
+                    "semi_major_axis_km": 6917.721,
+                    "eccentricity": 0.034486,
+                    "periapsis_km": 301.021,
+                    "apoapsis_km": 778.15,
+                    "inclination_deg": 28.5282,
+                    "period_min": 95.434,
+                    "lifespan_years": null,
+                    "epoch": "2021-01-02T13:40:24.000Z",
+                    "mean_motion": 15.08892068,
+                    "raan": 147.4039,
+                    "arg_of_pericenter": 286.736,
+                    "mean_anomaly": 69.5664,
+                    "id": "5eb0e4cdb6c3bb0006eeb245"
+                },
+                {
+                    "dragon": {
+                        "capsule": null,
+                        "mass_returned_kg": null,
+                        "mass_returned_lbs": null,
+                        "flight_time_sec": null,
+                        "manifest": null,
+                        "water_landing": null,
+                        "land_landing": null
+                    },
+                    "name": "BRICSat 2",
+                    "type": "Satellite",
+                    "reused": false,
+                    "launch": "5eb87d35ffd86e000604b37a",
+                    "customers": [
+                        "US Naval Academy"
+                    ],
+                    "norad_ids": [],
+                    "nationalities": [
+                        "United States"
+                    ],
+                    "manufacturers": [
+                        "US Naval Academy"
+                    ],
+                    "mass_kg": 1,
+                    "mass_lbs": 2.2,
+                    "orbit": "LEO",
+                    "reference_system": "geocentric",
+                    "regime": "low-earth",
+                    "longitude": null,
+                    "semi_major_axis_km": null,
+                    "eccentricity": null,
+                    "periapsis_km": null,
+                    "apoapsis_km": null,
+                    "inclination_deg": null,
+                    "period_min": null,
+                    "lifespan_years": null,
+                    "epoch": null,
+                    "mean_motion": null,
+                    "raan": null,
+                    "arg_of_pericenter": null,
+                    "mean_anomaly": null,
+                    "id": "5eb0e4ceb6c3bb0006eeb246"
+                },
+                {
+                    "dragon": {
+                        "capsule": null,
+                        "mass_returned_kg": null,
+                        "mass_returned_lbs": null,
+                        "flight_time_sec": null,
+                        "manifest": null,
+                        "water_landing": null,
+                        "land_landing": null
+                    },
+                    "name": "TEPCE 1 & 2",
+                    "type": "Satellite",
+                    "reused": false,
+                    "launch": "5eb87d35ffd86e000604b37a",
+                    "customers": [
+                        "Naval Research Lab"
+                    ],
+                    "norad_ids": [],
+                    "nationalities": [
+                        "United States"
+                    ],
+                    "manufacturers": [
+                        "Naval Research Lab"
+                    ],
+                    "mass_kg": 1.5,
+                    "mass_lbs": 3.3,
+                    "orbit": "LEO",
+                    "reference_system": "geocentric",
+                    "regime": "low-earth",
+                    "longitude": null,
+                    "semi_major_axis_km": null,
+                    "eccentricity": null,
+                    "periapsis_km": null,
+                    "apoapsis_km": null,
+                    "inclination_deg": null,
+                    "period_min": null,
+                    "lifespan_years": null,
+                    "epoch": null,
+                    "mean_motion": null,
+                    "raan": null,
+                    "arg_of_pericenter": null,
+                    "mean_anomaly": null,
+                    "id": "5eb0e4ceb6c3bb0006eeb247"
+                },
+                {
+                    "dragon": {
+                        "capsule": null,
+                        "mass_returned_kg": null,
+                        "mass_returned_lbs": null,
+                        "flight_time_sec": null,
+                        "manifest": null,
+                        "water_landing": null,
+                        "land_landing": null
+                    },
+                    "name": "CP9",
+                    "type": "Satellite",
+                    "reused": false,
+                    "launch": "5eb87d35ffd86e000604b37a",
+                    "customers": [
+                        "Cal Poly"
+                    ],
+                    "norad_ids": [],
+                    "nationalities": [
+                        "United States"
+                    ],
+                    "manufacturers": [
+                        "Cal Poly"
+                    ],
+                    "mass_kg": 1.5,
+                    "mass_lbs": 3.3,
+                    "orbit": "LEO",
+                    "reference_system": "geocentric",
+                    "regime": "low-earth",
+                    "longitude": null,
+                    "semi_major_axis_km": null,
+                    "eccentricity": null,
+                    "periapsis_km": null,
+                    "apoapsis_km": null,
+                    "inclination_deg": null,
+                    "period_min": null,
+                    "lifespan_years": null,
+                    "epoch": null,
+                    "mean_motion": null,
+                    "raan": null,
+                    "arg_of_pericenter": null,
+                    "mean_anomaly": null,
+                    "id": "5eb0e4ceb6c3bb0006eeb248"
+                },
+                {
+                    "dragon": {
+                        "capsule": null,
+                        "mass_returned_kg": null,
+                        "mass_returned_lbs": null,
+                        "flight_time_sec": null,
+                        "manifest": null,
+                        "water_landing": null,
+                        "land_landing": null
+                    },
+                    "name": "StangSat",
+                    "type": "Satellite",
+                    "reused": false,
+                    "launch": "5eb87d35ffd86e000604b37a",
+                    "customers": [
+                        "Merrit Island HS"
+                    ],
+                    "norad_ids": [],
+                    "nationalities": [
+                        "United States"
+                    ],
+                    "manufacturers": [
+                        "Merrit Island HS"
+                    ],
+                    "mass_kg": 1,
+                    "mass_lbs": 2.2,
+                    "orbit": "LEO",
+                    "reference_system": "geocentric",
+                    "regime": "low-earth",
+                    "longitude": null,
+                    "semi_major_axis_km": null,
+                    "eccentricity": null,
+                    "periapsis_km": null,
+                    "apoapsis_km": null,
+                    "inclination_deg": null,
+                    "period_min": null,
+                    "lifespan_years": null,
+                    "epoch": null,
+                    "mean_motion": null,
+                    "raan": null,
+                    "arg_of_pericenter": null,
+                    "mean_anomaly": null,
+                    "id": "5eb0e4ceb6c3bb0006eeb249"
+                }
+            ],
+            "launchpad": "5e9e4502f509094188566f88",
+            "auto_update": true,
+            "failures": [],
+            "flight_number": 81,
+            "name": "STP-2",
+            "date_utc": "2019-06-25T03:30:00.000Z",
+            "date_unix": 1561433400,
+            "date_local": "2019-06-24T23:30:00-04:00",
+            "date_precision": "hour",
+            "upcoming": false,
+            "cores": [
+                {
+                    "core": "5e9e28a7f3591878063b2661",
+                    "flight": 1,
+                    "gridfins": true,
+                    "legs": true,
+                    "reused": false,
+                    "landing_attempt": true,
+                    "landing_success": false,
+                    "landing_type": "ASDS",
+                    "landpad": "5e9e3032383ecb6bb234e7ca"
+                },
+                {
+                    "core": "5e9e28a6f359183c413b265d",
+                    "flight": 2,
+                    "gridfins": true,
+                    "legs": true,
+                    "reused": true,
+                    "landing_attempt": true,
+                    "landing_success": true,
+                    "landing_type": "RTLS",
+                    "landpad": "5e9e3032383ecb267a34e7c7"
+                },
+                {
+                    "core": "5e9e28a6f359188fd53b265e",
+                    "flight": 2,
+                    "gridfins": true,
+                    "legs": true,
+                    "reused": true,
+                    "landing_attempt": true,
+                    "landing_success": true,
+                    "landing_type": "RTLS",
+                    "landpad": "5e9e3032383ecb90a834e7c8"
+                }
+            ],
+            "id": "5eb87d35ffd86e000604b37a"
+        }
+    ],
+    "totalDocs": 1,
+    "offset": 0,
+    "limit": 50,
+    "totalPages": 1,
+    "page": 1,
+    "pagingCounter": 1,
+    "hasPrevPage": false,
+    "hasNextPage": false,
+    "prevPage": null,
+    "nextPage": null
+}

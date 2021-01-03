@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/spacexdash.github.io/x/static/css/main.6f2ddd0b.chunk.css",
+    "main.js": "/spacexdash.github.io/x/static/js/main.8b025e60.chunk.js",
+    "main.js.map": "/spacexdash.github.io/x/static/js/main.8b025e60.chunk.js.map",
+    "runtime-main.js": "/spacexdash.github.io/x/static/js/runtime-main.c6c10429.js",
+    "runtime-main.js.map": "/spacexdash.github.io/x/static/js/runtime-main.c6c10429.js.map",
+    "static/css/2.4204d3a1.chunk.css": "/spacexdash.github.io/x/static/css/2.4204d3a1.chunk.css",
+    "static/js/2.c79cb2ae.chunk.js": "/spacexdash.github.io/x/static/js/2.c79cb2ae.chunk.js",
+    "static/js/2.c79cb2ae.chunk.js.map": "/spacexdash.github.io/x/static/js/2.c79cb2ae.chunk.js.map",
+    "static/js/3.bedf5e0e.chunk.js": "/spacexdash.github.io/x/static/js/3.bedf5e0e.chunk.js",
+    "static/js/3.bedf5e0e.chunk.js.map": "/spacexdash.github.io/x/static/js/3.bedf5e0e.chunk.js.map",
+    "index.html": "/spacexdash.github.io/x/index.html",
+    "static/css/2.4204d3a1.chunk.css.map": "/spacexdash.github.io/x/static/css/2.4204d3a1.chunk.css.map",
+    "static/css/main.6f2ddd0b.chunk.css.map": "/spacexdash.github.io/x/static/css/main.6f2ddd0b.chunk.css.map",
+    "static/js/2.c79cb2ae.chunk.js.LICENSE.txt": "/spacexdash.github.io/x/static/js/2.c79cb2ae.chunk.js.LICENSE.txt",
+    "static/media/main.scss": "/spacexdash.github.io/x/static/media/bootstrap-icons.6fc4007d.woff"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.c6c10429.js",
+    "static/css/2.4204d3a1.chunk.css",
+    "static/js/2.c79cb2ae.chunk.js",
+    "static/css/main.6f2ddd0b.chunk.css",
+    "static/js/main.8b025e60.chunk.js"
+  ]
+}
