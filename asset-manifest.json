@@ -1,26 +1,26 @@
 {
   "files": {
-    "main.css": "/static/css/main.6f2ddd0b.chunk.css",
-    "main.js": "/static/js/main.6ac696f3.chunk.js",
-    "main.js.map": "/static/js/main.6ac696f3.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.e609ee86.js",
-    "runtime-main.js.map": "/static/js/runtime-main.e609ee86.js.map",
-    "static/css/2.d86aa9eb.chunk.css": "/static/css/2.d86aa9eb.chunk.css",
-    "static/js/2.c79cb2ae.chunk.js": "/static/js/2.c79cb2ae.chunk.js",
-    "static/js/2.c79cb2ae.chunk.js.map": "/static/js/2.c79cb2ae.chunk.js.map",
-    "static/js/3.bedf5e0e.chunk.js": "/static/js/3.bedf5e0e.chunk.js",
-    "static/js/3.bedf5e0e.chunk.js.map": "/static/js/3.bedf5e0e.chunk.js.map",
-    "index.html": "/index.html",
-    "static/css/2.d86aa9eb.chunk.css.map": "/static/css/2.d86aa9eb.chunk.css.map",
-    "static/css/main.6f2ddd0b.chunk.css.map": "/static/css/main.6f2ddd0b.chunk.css.map",
-    "static/js/2.c79cb2ae.chunk.js.LICENSE.txt": "/static/js/2.c79cb2ae.chunk.js.LICENSE.txt",
-    "static/media/main.scss": "/static/media/bootstrap-icons.6fc4007d.woff"
+    "main.css": "/x/static/css/main.6f2ddd0b.chunk.css",
+    "main.js": "/x/static/js/main.5fc8846a.chunk.js",
+    "main.js.map": "/x/static/js/main.5fc8846a.chunk.js.map",
+    "runtime-main.js": "/x/static/js/runtime-main.59acf102.js",
+    "runtime-main.js.map": "/x/static/js/runtime-main.59acf102.js.map",
+    "static/css/2.a3801416.chunk.css": "/x/static/css/2.a3801416.chunk.css",
+    "static/js/2.c79cb2ae.chunk.js": "/x/static/js/2.c79cb2ae.chunk.js",
+    "static/js/2.c79cb2ae.chunk.js.map": "/x/static/js/2.c79cb2ae.chunk.js.map",
+    "static/js/3.bedf5e0e.chunk.js": "/x/static/js/3.bedf5e0e.chunk.js",
+    "static/js/3.bedf5e0e.chunk.js.map": "/x/static/js/3.bedf5e0e.chunk.js.map",
+    "index.html": "/x/index.html",
+    "static/css/2.a3801416.chunk.css.map": "/x/static/css/2.a3801416.chunk.css.map",
+    "static/css/main.6f2ddd0b.chunk.css.map": "/x/static/css/main.6f2ddd0b.chunk.css.map",
+    "static/js/2.c79cb2ae.chunk.js.LICENSE.txt": "/x/static/js/2.c79cb2ae.chunk.js.LICENSE.txt",
+    "static/media/main.scss": "/x/static/media/bootstrap-icons.6fc4007d.woff"
   },
   "entrypoints": [
-    "static/js/runtime-main.e609ee86.js",
-    "static/css/2.d86aa9eb.chunk.css",
+    "static/js/runtime-main.59acf102.js",
+    "static/css/2.a3801416.chunk.css",
     "static/js/2.c79cb2ae.chunk.js",
     "static/css/main.6f2ddd0b.chunk.css",
-    "static/js/main.6ac696f3.chunk.js"
+    "static/js/main.5fc8846a.chunk.js"
   ]
 }
