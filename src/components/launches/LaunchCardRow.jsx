@@ -17,7 +17,7 @@ export const LaunchCardRow = (props) => {
     const { push } = useHistory();
     const shouldLock = (details === null || details === "");
     const disabledClass = (shouldLock) ? `disable-row` : false;
-    return <li className={`list-group-item ${disabledClass}`} onClick={(e) => handlePush(e, push, id, props.launch, shouldLock)} >
+    return <li className={`list-group-item launch-card-row ${disabledClass}`} onClick={(e) => handlePush(e, push, id, props.launch, shouldLock)} >
         <div className='row'>
             <h6 className='col'>
                 {name}
