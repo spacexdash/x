@@ -50,8 +50,7 @@ export const Search = () => {
                 renderMenuItemChildren={(option, props) => (<span>{option.name}</span>)}
                 onChange={(e) => {
                     if (e.length > 0) {
-                        console.log('wahahahahah');
-                        history.push(`/launch/${e[0].id}`, { launch: e[0] });
+                        history.push(`/x/launch/${e[0].id}`, { launch: e[0] });
                     }
                 }}
             />

@@ -6,7 +6,7 @@ import { useHistory } from 'react-router-dom';
 const handlePush = (e, push, id, launch, shouldLock) => {
     if (!shouldLock) {
         if ((e.target.id !== 'icon-tooltip')) {
-            push(`/launch/${id}`, { launch: launch });
+            push(`/x/launch/${id}`, { launch: launch });
         }
     }
 };
