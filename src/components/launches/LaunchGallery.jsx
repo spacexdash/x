@@ -26,10 +26,11 @@ const imagesForContext = (launch,  context) => {
 export const LaunchGallery = ({ launch, context }) => {
     const hrefs = imagesForContext(launch, context);
     if (hrefs.length === 0) return null;
-
-    return <Card>
-        <div className='row m-2 '>
-            {hrefs.map((href) => <img key={href} className='col-sm-12 col-md-6 p-1 img-responsive img-fluid' src={href} style={{ objectFit: 'cover'}} />)}
+    return <Card style={{ backgroundColor: 'snow'}}>
+        <div className='row m-1'>
+            {hrefs.map((href) => <div className='col-12 text-center p-1'>
+                <img key={href} src={href} style={{height: 'auto', width: '100%'}} />
+            </div>)}
         </div>
     </Card>
 };
