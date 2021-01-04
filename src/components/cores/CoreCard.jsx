@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import {Link} from 'react-router-dom';
+import {Link, useHistory} from 'react-router-dom';
 import { Card, Button} from 'react-bootstrap';
 import { Loader } from 'react-bootstrap-typeahead';
 import { getCore } from '../../service/SpaceXApi';
@@ -11,15 +11,23 @@ const loadEnhanced = ({ id, enhancedCore, setEnhancedCore }) => {
         .then((d) => setEnhancedCore({ hasLoaded: true, data: d, error: null }))
         .catch((e) => setEnhancedCore({ data: {}, hasLoaded: true, error: e }));
 };
+
+const MoreLaunches = ({ enhancedCore, serial }) => {
+    const history = useHistory();
+    const launchState = { core: enhancedCore };
+    return <small>
+        <a onClick={() => history.push(`/x/core/${enhancedCore.id}/launches`, launchState)}>
+            Launches Containing This Core
+        </a>
+    </small>
+};
 export const CoreCard = ({ core, index }) => {
     const id = core.core;
     const [enhancedCore, setEnhancedCore] = useState({ data: {}, hasLoaded: false, error: null });
     useEffect(() => loadEnhanced({ id, enhancedCore, setEnhancedCore }));
     const canDisplayEnhanced = (enhancedCore.hasLoaded && !enhancedCore.error);
-    console.log(enhancedCore);
     const serial = (canDisplayEnhanced) ? <small className='text-muted'>Serial: {enhancedCore.data.serial}</small> : <Loader />;
-    const moreLaunches = (canDisplayEnhanced && core.flight > 1) ? 
-        <small><Link onClick={() => console.log('click')}>Launches Containing This Booster</Link></small> : null
+    const moreLaunches = (canDisplayEnhanced && core.flight > 1) ? <MoreLaunches enhancedCore={enhancedCore.data} /> : null;
 
     return <Card>
         <Card.Body>

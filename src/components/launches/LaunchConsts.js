@@ -11,3 +11,6 @@ export const LAUNCH_PAGE_CONTEXT_LANDINGZONE = "Launchpad";
 export const LAUNCH_PAGE_CONTEXT_SHIPS = "Ships";
 
 export const SEARCH_LAUNCH = "Launches";
+
+export const LAUNCHES_CORE = "core"
+export const LAUNCHES_SHIP = "ship"

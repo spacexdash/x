@@ -39,4 +39,10 @@ export const getCore = (id) => {
     const fn = () => fetch(`${domain}/cores/${id}`).then((r) => r.json());
     return wrapFetch(fn, "core_one");
 }
+
+export const getLaunches = (ids) => {
+    const payload = { ...defaultLaunchQuery, query: { ...defaultLaunchQuery.query, "_id": { "$in": ids }}};
+    const fn = () => fetch(`${domain}/launches/query`, { ...defaultPostConfiguration, body: JSON.stringify(payload) }).then(r => r.json());
+    return wrapFetch(fn, "launches_past");
+}
 export const wrapFetch = (fn, identifier) => runApi(fn, "spaceXApi", identifier);
