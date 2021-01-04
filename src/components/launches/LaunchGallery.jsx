@@ -28,8 +28,8 @@ export const LaunchGallery = ({ launch, context }) => {
     if (hrefs.length === 0) return null;
     return <Card style={{ backgroundColor: 'snow'}}>
         <div className='row m-1'>
-            {hrefs.map((href) => <div className='col-12 text-center p-1'>
-                <img key={href} src={href} style={{height: 'auto', width: '100%'}} />
+            {hrefs.map((href) => <div key={href} className='col-12 text-center p-1'>
+                <img src={href} style={{height: 'auto', width: '100%'}} />
             </div>)}
         </div>
     </Card>
