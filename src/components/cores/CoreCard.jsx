@@ -1,8 +1,26 @@
-import React from 'react';
-import { Card } from 'react-bootstrap';
+import React, { useState, useEffect } from 'react';
+import {Link} from 'react-router-dom';
+import { Card, Button} from 'react-bootstrap';
+import { Loader } from 'react-bootstrap-typeahead';
+import { getCore } from '../../service/SpaceXApi';
 import { LandingIndicators } from '../launches/LaunchIndicators';
-// todo - find a way to get the booster serial
+
+const loadEnhanced = ({ id, enhancedCore, setEnhancedCore }) => {
+    if (enhancedCore.hasLoaded) return null;
+    return getCore(id)
+        .then((d) => setEnhancedCore({ hasLoaded: true, data: d, error: null }))
+        .catch((e) => setEnhancedCore({ data: {}, hasLoaded: true, error: e }));
+};
 export const CoreCard = ({ core, index }) => {
+    const id = core.core;
+    const [enhancedCore, setEnhancedCore] = useState({ data: {}, hasLoaded: false, error: null });
+    useEffect(() => loadEnhanced({ id, enhancedCore, setEnhancedCore }));
+    const canDisplayEnhanced = (enhancedCore.hasLoaded && !enhancedCore.error);
+    console.log(enhancedCore);
+    const serial = (canDisplayEnhanced) ? <small className='text-muted'>Serial: {enhancedCore.data.serial}</small> : <Loader />;
+    const moreLaunches = (canDisplayEnhanced && core.flight > 1) ? 
+        <small><Link onClick={() => console.log('click')}>Launches Containing This Booster</Link></small> : null
+
     return <Card>
         <Card.Body>
             <div className='row'>
@@ -15,7 +33,7 @@ export const CoreCard = ({ core, index }) => {
             </div>
             <div className='row'>
                 <div className='col'>
-                    <small className='text-muted'>{core.landing_attempt && core.landing_attempt !== null &&  core.landing_type}</small>
+                    <small className='text-muted'>Landing Type: {core.landing_attempt && core.landing_attempt !== null &&  core.landing_type}</small>
                 </div>
             </div>
             <div className='row'>
@@ -25,7 +43,24 @@ export const CoreCard = ({ core, index }) => {
             </div>
             <div className='row'>
                 <div className='col'>
-                    <small className='text-muted'>ID: {core.core}</small>
+                    {serial}
+                </div>
+            </div>
+            <div className='row'>
+                <div className='col'>
+                   { canDisplayEnhanced && core.flight > 1 && <small className='text-muted'>
+                       This booster has preivously landed {enhancedCore.data.rtls_landings} times under return to launch site configuration.</small>}
+                </div>
+            </div>
+            <div className='row'>
+                <div className='col'>
+                   { canDisplayEnhanced && core.flight > 1 && <small className='text-muted'>
+                       This booster has preivously landed {enhancedCore.data.asds_landings} times on an automous spaceport droneship.</small>}
+                </div>
+            </div>
+            <div className='row'>
+                <div className='col'>
+                    {moreLaunches}
                 </div>
             </div>
         </Card.Body>
