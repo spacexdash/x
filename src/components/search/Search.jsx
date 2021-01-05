@@ -18,7 +18,7 @@ const search = (fn, setIsLoading, setOptions) => {
 const SEARCH_CONTEXTS = [ SEARCH_LAUNCH ];
 
 const SEARCH_PLACEHOLDERS = {
-    [SEARCH_LAUNCH]: 'Search for a launch e.g. Crew',
+    [SEARCH_LAUNCH]: 'Search for a launch e.g. STP-2',
 };
 const searchFn = (term, searchContext, setIsLoading, setOptions) => {
     switch(searchContext) {
