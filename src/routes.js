@@ -12,7 +12,7 @@ const routes = (
         <Route exact path="/launch/:launchId" component={LaunchPage} />
         <Route exact path="/x/launch/:launchId" component={LaunchPage} />
         <Route exact path="/x/core/:id/launches" component={Launches} />
-        <Route exact path="/x/ships/:id/ship" component={Launches} />
+        <Route exact path="/x/ship/:id/launches" component={Launches} />
     </Switch>
 )
 

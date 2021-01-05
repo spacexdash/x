@@ -2,7 +2,7 @@ import {React, useEffect, useState} from 'react';
 import {MainLayout} from '../layout/MainLayout';
 import { useLocation, useParams } from 'react-router-dom';
 import { LAUNCHES_CORE, LAUNCHES_SHIP } from './LaunchConsts';
-import { getCore, getLaunches } from '../../service/SpaceXApi';
+import { getCore, getLaunches, getShip } from '../../service/SpaceXApi';
 import {LaunchCardRow } from './LaunchCardRow';
 import { Card } from 'react-bootstrap';
 
@@ -11,25 +11,18 @@ const loadWithPreReq = (id, ctx, setLaunches) => {
     switch(ctx) {
         case LAUNCHES_CORE:
             return getCore(id)
-                .then((res) => loadLaunches(ctx, res.launches, setLaunches))
+                .then((res) => loadLaunches(res.launches, setLaunches))
         case LAUNCHES_SHIP:
-            break;
+            return getShip(id)
+                .then((res) => loadLaunches(res.launches, setLaunches))
         default:
             break;
     }
 };
 
-const loadLaunches = (ctx, launchIds, setLaunches) => {
-    switch(ctx) {
-        case LAUNCHES_CORE:
-            return getLaunches(launchIds)
-                .then((d) => setLaunches({ isLoading: false, hasLoaded: true, error: null, data: d}));
-        case LAUNCHES_SHIP:
-            // todo + launchpads, dragons, 
-            break;
-        default:
-            break;
-    }
+const loadLaunches = (launchIds, setLaunches) => {
+    return getLaunches(launchIds)
+        .then((d) => setLaunches({ isLoading: false, hasLoaded: true, error: null, data: d}));
 }
 
 const load = (id, ctx, location, launches, setLaunches) => {
@@ -42,7 +35,7 @@ const load = (id, ctx, location, launches, setLaunches) => {
         return loadWithPreReq(id, ctx, setLaunches)
             .catch((e) => setLaunches({ ...launches, isLoading: false, hasLoaded: true, error: e }));
     } else {
-        return loadLaunches(ctx, location.state[ctx].launches, setLaunches)
+        return loadLaunches(location.state[ctx].launches, setLaunches)
             .catch((e) => setLaunches({ ...launches, isLoading: false, hasLoaded: true, error: e }));
     }
 };

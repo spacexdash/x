@@ -40,6 +40,11 @@ export const getCore = (id) => {
     return wrapFetch(fn, "core_one");
 }
 
+export const getShip = (id) => {
+    const fn = () => fetch(`${domain}/ships/${id}`).then((r) => r.json());
+    return wrapFetch(fn, "ship_one");
+}
+
 export const getLaunches = (ids) => {
     const payload = { ...defaultLaunchQuery, query: { ...defaultLaunchQuery.query, "_id": { "$in": ids }}};
     const fn = () => fetch(`${domain}/launches/query`, { ...defaultPostConfiguration, body: JSON.stringify(payload) }).then(r => r.json());
