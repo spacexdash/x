@@ -3,8 +3,9 @@ import { Card, Button} from 'react-bootstrap';
 import { LAUNCH_DATA_TYPE_PAST, LAUNCH_DATA_TYPE_UPCOMING } from './LaunchConsts';
 import { getUpcomingLaunches, getPastLaunches } from '../../service/SpaceXApi';
 import {LaunchCardRow } from './LaunchCardRow';
+import { useHistory } from 'react-router-dom';
 
-const MAX_ITEMS = 7;
+const LIMIT = 7;
 
 const getTitle = (type) => {
     switch(type) {
@@ -16,43 +17,55 @@ const getTitle = (type) => {
             return "Ooops something has gone wrong"
     }
 };
+
+const getMoreUrl = (type) => {
+    switch(type) {
+        case LAUNCH_DATA_TYPE_PAST:
+            return `/x/launches/past`;
+        case LAUNCH_DATA_TYPE_UPCOMING:
+            return `/x/launches/upcoming`;
+        default:
+            return '/'
+    }
+}
 const getData = (type) => {
     switch(type) {
         case LAUNCH_DATA_TYPE_PAST:
-            return getPastLaunches();
+            return getPastLaunches(LIMIT);
         case LAUNCH_DATA_TYPE_UPCOMING:
-            return getUpcomingLaunches();
+            return getUpcomingLaunches(LIMIT);
         default:
             return Promise.resolve([]);
     }
 };
 
-const loadCard = (opts) => {
-    const { type, hasLoaded, setHasLoaded, setLaunchData } = opts;
-    if (hasLoaded) {
+const loadCard = (type, launchData, setLaunchData) => {
+    if (launchData.hasLoaded || launchData.isLoading) {
         return;
     }
+    setLaunchData({ ...launchData, isLoading: true });
     return getData(type).then((data) => {
-        setLaunchData(data.docs);
-        setHasLoaded(true)
+        setLaunchData({ ...launchData, isLoading: false, hasLoaded: true, data: data });
     }).catch((e) => {
         console.error(e);
-        setHasLoaded(true);
+        setLaunchData({ ...launchData, isLoading: false, hasLoaded: true, error: e });
     });
 }
 export const LaunchCard = (props) => {
+    const history = useHistory();
     const { type } = props;
-    const [hasLoaded, setHasLoaded] = useState(false);
-    const [launchData, setLaunchData] = useState([]);
-    useEffect(() => loadCard({  type, hasLoaded, setLaunchData, setHasLoaded }), [hasLoaded, type]);
+    const [launchData, setLaunchData] = useState({ data: { totalDocs: 0, docs: [] }, hasLoaded: false, isLoading: false, error: null });
+    useEffect(() => loadCard( type, launchData, setLaunchData));
 
     return <Card>
         <Card.Body>
             <Card.Title>{getTitle(type)}</Card.Title>
             <ul className="list-group">
-                {launchData.slice(0, MAX_ITEMS).map((launch) => <LaunchCardRow key={launch.id} launch={launch} />) }
+                {launchData.data.docs.map((launch) => <LaunchCardRow key={launch.id} launch={launch} />) }
             </ul>
-            {launchData.length > MAX_ITEMS && <Button disabled className='ml-1 pl-0 mt-2' variant='link'>View {launchData.length - MAX_ITEMS} more</Button>}
+            {launchData.data.totalDocs > LIMIT && 
+                <Button onClick={() => history.push(getMoreUrl(type))} className='ml-1 pl-0 mt-2' variant='link'>
+                    View {launchData.data.totalDocs - LIMIT} more</Button>}
         </Card.Body>
     </Card>
 }

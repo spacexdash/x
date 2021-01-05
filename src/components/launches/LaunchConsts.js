@@ -14,3 +14,5 @@ export const SEARCH_LAUNCH = "Launches";
 
 export const LAUNCHES_CORE = "core"
 export const LAUNCHES_SHIP = "ship"
+export const LAUNCHES_UPCOMING = "upcoming";
+export const LAUNCHES_PAST = "past";

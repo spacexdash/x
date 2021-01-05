@@ -6,6 +6,6 @@ export default {
         spaceXApi: "https://api.spacexdata.com"
     },
     mocks: {
-        spaceXApi: true,
+        spaceXApi: false,
     }
 }

@@ -59,7 +59,7 @@ export const CoreCard = ({ core, index }) => {
     const canDisplayEnhanced = (enhancedCore.hasLoaded && !enhancedCore.error);
     const serial = (canDisplayEnhanced) ? <small className='text-muted'> This core uses the serial number <strong>{enhancedCore.data.serial}</strong></small> : <Loader />;
     const moreLaunches = (canDisplayEnhanced && core.flight > 1) ? <MoreLaunches enhancedCore={enhancedCore.data} /> : null;
-
+    console.log('Enhanced Core', enhancedCore.data);
     return <Card>
         <Card.Body>
             <div className='row'>

@@ -5,19 +5,23 @@ const defaultQueryHeaders = { 'Content-Type': 'application/json' }
 const defaultPostConfiguration = { method: 'POST', headers: defaultQueryHeaders };
 const defaultLaunchQuery = {
     query: {},
-    options: { populate: ["payloads", "rocket", "landpad", "ships"], sort: { flight_number: "desc" }, limit: 7 }
+    options: { populate: ["payloads", "rocket", "landpad", "ships"], sort: { flight_number: "desc" }, limit: 30 }
 }
 
-export const getPastLaunches = () => {
-    const payload = { ...defaultLaunchQuery, query: { ...defaultLaunchQuery.query, upcoming: false } };
+export const getPastLaunches = (limit = defaultLaunchQuery.options.limit) => {
+    const payload = { 
+        ...defaultLaunchQuery, 
+        query: { ...defaultLaunchQuery.query, upcoming: false },
+        options: { ...defaultLaunchQuery.options, limit: limit }
+    };
     const fn = () => fetch(`${domain}/launches/query`, { ...defaultPostConfiguration, body: JSON.stringify(payload) }).then(r => r.json());
     return wrapFetch(fn, "launches_past");
 }
-export const getUpcomingLaunches = () => {
+export const getUpcomingLaunches = (limit = defaultLaunchQuery.options.limit) => {
     const payload = {
         ...defaultLaunchQuery,
         query: { ...defaultLaunchQuery.query, upcoming: true },
-        options: { ...defaultLaunchQuery.options, sort: { flight_number: "asc" } }
+        options: { ...defaultLaunchQuery.options, limit: limit, sort: { flight_number: "asc" } }
     };
     const fn = () => fetch(`${domain}/launches/query`, { ...defaultPostConfiguration, body: JSON.stringify(payload) }).then(r => r.json());
     return wrapFetch(fn, "launches_upcoming");

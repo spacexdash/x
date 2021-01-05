@@ -1,8 +1,8 @@
 import {React, useEffect, useState} from 'react';
 import {MainLayout} from '../layout/MainLayout';
 import { useLocation, useParams } from 'react-router-dom';
-import { LAUNCHES_CORE, LAUNCHES_SHIP } from './LaunchConsts';
-import { getCore, getLaunches, getShip } from '../../service/SpaceXApi';
+import { LAUNCHES_CORE, LAUNCHES_PAST, LAUNCHES_SHIP, LAUNCHES_UPCOMING } from './LaunchConsts';
+import { getCore, getLaunches, getShip, getUpcomingLaunches, getPastLaunches } from '../../service/SpaceXApi';
 import {LaunchCardRow } from './LaunchCardRow';
 import { Card } from 'react-bootstrap';
 
@@ -11,16 +11,22 @@ const loadWithPreReq = (id, ctx, setLaunches) => {
     switch(ctx) {
         case LAUNCHES_CORE:
             return getCore(id)
-                .then((res) => loadLaunches(res.launches, setLaunches))
+                .then((res) => loadLaunchesFromIds(res.launches, setLaunches))
         case LAUNCHES_SHIP:
             return getShip(id)
-                .then((res) => loadLaunches(res.launches, setLaunches))
+                .then((res) => loadLaunchesFromIds(res.launches, setLaunches))
+        case LAUNCHES_UPCOMING:
+            return getUpcomingLaunches()
+                .then((d) => setLaunches({ isLoading: false, hasLoaded: true, data: d }));
+        case LAUNCHES_PAST:
+            return getPastLaunches()
+                .then((d) => setLaunches({ isLoading: false, hasLoaded: true, data: d }));
         default:
             break;
     }
 };
 
-const loadLaunches = (launchIds, setLaunches) => {
+const loadLaunchesFromIds = (launchIds, setLaunches) => {
     return getLaunches(launchIds)
         .then((d) => setLaunches({ isLoading: false, hasLoaded: true, error: null, data: d}));
 }
@@ -35,16 +41,21 @@ const load = (id, ctx, location, launches, setLaunches) => {
         return loadWithPreReq(id, ctx, setLaunches)
             .catch((e) => setLaunches({ ...launches, isLoading: false, hasLoaded: true, error: e }));
     } else {
-        return loadLaunches(location.state[ctx].launches, setLaunches)
+        return loadLaunchesFromIds(location.state[ctx].launches, setLaunches)
             .catch((e) => setLaunches({ ...launches, isLoading: false, hasLoaded: true, error: e }));
     }
 };
 
 const getLaunchesContext = (location) => {
+    // should probably map over an array here.
     if (location.pathname.includes(LAUNCHES_CORE)) {
         return LAUNCHES_CORE;
     } else if (location.pathname.includes(LAUNCHES_SHIP)) {
         return LAUNCHES_SHIP;
+    } else if (location.pathname.includes(LAUNCHES_UPCOMING)) {
+        return LAUNCHES_UPCOMING;
+    } else if (location.pathname.includes(LAUNCHES_PAST)) {
+        return LAUNCHES_PAST;
     }
 }
 
