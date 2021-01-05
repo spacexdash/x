@@ -36,7 +36,7 @@ const getPreviousLandings = (enhancedCore, field) => {
     } else {
         const suffix = `under a return to launch site configuration`;
         if (enhancedCore.data[field] === 0) {
-            return `This first has never landed ${suffix}`;
+            return `This first stage has never landed ${suffix}`;
         } else {
             return `${prefix} landed ${times} ${suffix}`;
         }
