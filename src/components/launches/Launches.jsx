@@ -1,34 +1,36 @@
-import {React, useEffect, useState} from 'react';
-import {MainLayout} from '../layout/MainLayout';
+import { React, useEffect, useState } from 'react';
+import { MainLayout } from '../layout/MainLayout';
 import { useLocation, useParams } from 'react-router-dom';
 import { LAUNCHES_CORE, LAUNCHES_PAST, LAUNCHES_SHIP, LAUNCHES_UPCOMING } from './LaunchConsts';
 import { getCore, getLaunches, getShip, getUpcomingLaunches, getPastLaunches } from '../../service/SpaceXApi';
-import {LaunchCardRow } from './LaunchCardRow';
-import { Card } from 'react-bootstrap';
+import { LaunchCardRow } from './LaunchCardRow';
+import { Card, Button } from 'react-bootstrap';
+import { Loader } from 'react-bootstrap-typeahead';
 
-// If we land on a route without state, we have to fetch first the obj before fetching actual launch data.
-const loadWithPreReq = (id, ctx, setLaunches) => {
-    switch(ctx) {
+// lol pls refactor
+const loadWithPreReq = (id, ctx, setLaunches, launches, page) => {
+    console.log('LOAD WITH PRE-REQ', launches);
+    switch (ctx) {
         case LAUNCHES_CORE:
             return getCore(id)
-                .then((res) => loadLaunchesFromIds(res.launches, setLaunches))
+                .then((res) => loadLaunchesFromIds(res.launches, setLaunches, launches, page))
         case LAUNCHES_SHIP:
             return getShip(id)
-                .then((res) => loadLaunchesFromIds(res.launches, setLaunches))
+                .then((res) => loadLaunchesFromIds(res.launches, setLaunches, launches, page))
         case LAUNCHES_UPCOMING:
-            return getUpcomingLaunches()
-                .then((d) => setLaunches({ isLoading: false, hasLoaded: true, data: d }));
+            return getUpcomingLaunches(page)
+                .then((d) => setLaunches({ isLoading: false, hasLoaded: true, data: { ...launches.data, ...d, docs: [...launches.data.docs, ...d.docs] } }));
         case LAUNCHES_PAST:
-            return getPastLaunches()
-                .then((d) => setLaunches({ isLoading: false, hasLoaded: true, data: d }));
+            return getPastLaunches(page)
+                .then((d) => setLaunches({ isLoading: false, hasLoaded: true, data: { ...launches.data, ...d, docs: [...launches.data.docs, ...d.docs] } }));
         default:
             break;
     }
 };
 
-const loadLaunchesFromIds = (launchIds, setLaunches) => {
-    return getLaunches(launchIds)
-        .then((d) => setLaunches({ isLoading: false, hasLoaded: true, error: null, data: d}));
+const loadLaunchesFromIds = (launchIds, setLaunches, launches, page) => {
+    return getLaunches(launchIds, page)
+        .then((d) => setLaunches({ isLoading: false, hasLoaded: true, error: null, data: { ...launches.data, ...d, docs: [...launches.data.docs, ...d.docs] } }));
 }
 
 const load = (id, ctx, location, launches, setLaunches) => {
@@ -36,12 +38,13 @@ const load = (id, ctx, location, launches, setLaunches) => {
 
     const hasState = (location.state);
     const hasPreReq = (hasState && "launches" in location.state[ctx]);
+    const page = launches.data.page + 1;
     setLaunches({ ...launches, isLoading: true });
     if (!hasPreReq) {
-        return loadWithPreReq(id, ctx, setLaunches)
+        return loadWithPreReq(id, ctx, setLaunches, launches, page)
             .catch((e) => setLaunches({ ...launches, isLoading: false, hasLoaded: true, error: e }));
     } else {
-        return loadLaunchesFromIds(location.state[ctx].launches, setLaunches)
+        return loadLaunchesFromIds(location.state[ctx].launches, setLaunches, launches, page)
             .catch((e) => setLaunches({ ...launches, isLoading: false, hasLoaded: true, error: e }));
     }
 };
@@ -62,14 +65,21 @@ const getLaunchesContext = (location) => {
 export const Launches = () => {
     const location = useLocation();
     const { id } = useParams();
-    const [launches, setLaunches] = useState({ data: { docs: [] }, hasLoaded: false, isLoading: false, error: null });
+    const [launches, setLaunches] = useState({ data: { docs: [], page: 0, totalPages: 2 }, hasLoaded: false, isLoading: false, error: null });
     const launchCtx = getLaunchesContext(location);
     useEffect(() => load(id, launchCtx, location, launches, setLaunches));
+    const allowMoreLoad = (!launches.isLoading && launches.data.page < launches.data.totalPages);
     return <MainLayout>
         <Card>
             <Card.Body>
                 <Card.Title>{'Launches'}</Card.Title>
                 {launches.data.docs.map((launch) => <LaunchCardRow key={launch.id} launch={launch} />)}
+                <div className='mt-3'>
+                    {allowMoreLoad && <Button onClick={() => {
+                        setLaunches({ ...launches, hasLoaded: false });
+                    }}>More</Button>}
+                    {launches.isLoading && <Loader />}
+                </div>
             </Card.Body>
         </Card>
     </MainLayout>

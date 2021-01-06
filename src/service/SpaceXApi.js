@@ -8,20 +8,20 @@ const defaultLaunchQuery = {
     options: { populate: ["payloads", "rocket", "landpad", "ships"], sort: { flight_number: "desc" }, limit: 30 }
 }
 
-export const getPastLaunches = (limit = defaultLaunchQuery.options.limit) => {
+export const getPastLaunches = (page = 1, limit = defaultLaunchQuery.options.limit) => {
     const payload = { 
         ...defaultLaunchQuery, 
         query: { ...defaultLaunchQuery.query, upcoming: false },
-        options: { ...defaultLaunchQuery.options, limit: limit }
+        options: { ...defaultLaunchQuery.options, limit: limit, page: page }
     };
     const fn = () => fetch(`${domain}/launches/query`, { ...defaultPostConfiguration, body: JSON.stringify(payload) }).then(r => r.json());
     return wrapFetch(fn, "launches_past");
 }
-export const getUpcomingLaunches = (limit = defaultLaunchQuery.options.limit) => {
+export const getUpcomingLaunches = (page = 1, limit = defaultLaunchQuery.options.limit) => {
     const payload = {
         ...defaultLaunchQuery,
         query: { ...defaultLaunchQuery.query, upcoming: true },
-        options: { ...defaultLaunchQuery.options, limit: limit, sort: { flight_number: "asc" } }
+        options: { ...defaultLaunchQuery.options, limit: limit, sort: { flight_number: "asc" }, page: page  }
     };
     const fn = () => fetch(`${domain}/launches/query`, { ...defaultPostConfiguration, body: JSON.stringify(payload) }).then(r => r.json());
     return wrapFetch(fn, "launches_upcoming");
@@ -49,8 +49,12 @@ export const getShip = (id) => {
     return wrapFetch(fn, "ship_one");
 }
 
-export const getLaunches = (ids) => {
-    const payload = { ...defaultLaunchQuery, query: { ...defaultLaunchQuery.query, "_id": { "$in": ids }}};
+export const getLaunches = (ids, page=1) => {
+    const payload = { 
+        ...defaultLaunchQuery,
+        query: { ...defaultLaunchQuery.query, "_id": { "$in": ids }},
+        options: { ...defaultLaunchQuery.options, page: page }
+    };
     const fn = () => fetch(`${domain}/launches/query`, { ...defaultPostConfiguration, body: JSON.stringify(payload) }).then(r => r.json());
     return wrapFetch(fn, "launches_past");
 }

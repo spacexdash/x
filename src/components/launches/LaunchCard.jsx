@@ -31,9 +31,9 @@ const getMoreUrl = (type) => {
 const getData = (type) => {
     switch(type) {
         case LAUNCH_DATA_TYPE_PAST:
-            return getPastLaunches(LIMIT);
+            return getPastLaunches(1, LIMIT);
         case LAUNCH_DATA_TYPE_UPCOMING:
-            return getUpcomingLaunches(LIMIT);
+            return getUpcomingLaunches(1, LIMIT);
         default:
             return Promise.resolve([]);
     }
