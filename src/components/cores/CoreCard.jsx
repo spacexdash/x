@@ -58,7 +58,7 @@ export const CoreCard = ({ core, index }) => {
     useEffect(() => loadEnhanced({ id, enhancedCore, setEnhancedCore }));
     const canDisplayEnhanced = (enhancedCore.hasLoaded && !enhancedCore.error);
     const serial = (canDisplayEnhanced) ? <small className='text-muted'> This core uses the serial number <strong>{enhancedCore.data.serial}</strong></small> : <Loader />;
-    const moreLaunches = (canDisplayEnhanced && core.flight > 1) ? <MoreLaunches enhancedCore={enhancedCore.data} /> : null;
+    const moreLaunches = (canDisplayEnhanced && enhancedCore.data.reuse_count > 0) ? <MoreLaunches enhancedCore={enhancedCore.data} /> : null;
     console.log('Enhanced Core', enhancedCore.data);
     return <Card>
         <Card.Body>
@@ -87,12 +87,22 @@ export const CoreCard = ({ core, index }) => {
             </div>
             <div className='row'>
                 <div className='col'>
-                { canDisplayEnhanced && core.flight > 1 && <small className='text-muted'>{getPreviousLandings(enhancedCore, 'rtls_landings')}</small> }
+                   { canDisplayEnhanced && <small className='text-muted'>This core is using block {enhancedCore.data.block} </small> }
                 </div>
             </div>
             <div className='row'>
                 <div className='col'>
-                   { canDisplayEnhanced && core.flight > 1 && <small className='text-muted'>{getPreviousLandings(enhancedCore, 'asds_landings')}</small> }
+                { canDisplayEnhanced && <small className='text-muted'>{getPreviousLandings(enhancedCore, 'rtls_landings')}</small> }
+                </div>
+            </div>
+            <div className='row'>
+                <div className='col'>
+                   { canDisplayEnhanced && <small className='text-muted'>{getPreviousLandings(enhancedCore, 'asds_landings')}</small> }
+                </div>
+            </div>
+            <div className='row'>
+                <div className='col'>
+                   { canDisplayEnhanced && <small className='text-muted'>The latest status on this booster: <strong>{enhancedCore.data.status}</strong> </small> }
                 </div>
             </div>
             <div className='row'>
