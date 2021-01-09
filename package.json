@@ -2,6 +2,10 @@
   "homepage": "http://spacexdash.github.io/x",
   "name": "space-dash",
   "version": "0.1.0",
+  "licenses": [{
+    "type": "MIT",
+    "url": "https://www.opensource.org/licenses/mit-license.php"
+  }],
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.8",
