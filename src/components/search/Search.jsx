@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-import { searchCores, searchLaunches } from '../../service/SpaceXApi';
+import { searchCores, searchLaunches, searchShip } from '../../service/SpaceXApi';
 import { AsyncTypeahead } from 'react-bootstrap-typeahead';
 import { Card, Form } from 'react-bootstrap';
 import {
     SEARCH_CORES,
-    SEARCH_LAUNCH
+    SEARCH_LAUNCH,
+    SEARCH_SHIP
 } from '../launches/LaunchConsts';
 import { useHistory } from 'react-router-dom';
 const filterBy = () => true;
@@ -16,11 +17,12 @@ const search = (fn, setIsLoading, setOptions) => {
     }).catch(() => setIsLoading(false))
 }
 
-const SEARCH_CONTEXTS = [ SEARCH_LAUNCH, SEARCH_CORES ];
+const SEARCH_CONTEXTS = [ SEARCH_LAUNCH, SEARCH_CORES, SEARCH_SHIP ];
 
 const SEARCH_PLACEHOLDERS = {
     [SEARCH_LAUNCH]: 'Search for a launch e.g. STP-2',
-    [SEARCH_CORES]: 'Search for launches containing a core e.g. B1040',
+    [SEARCH_CORES]: 'Search for launch by cores e.g. B1040',
+    [SEARCH_SHIP]: 'Search for launch by ships e.g. JRTI'
 };
 const searchFn = (term, searchContext, setIsLoading, setOptions) => {
     switch(searchContext) {
@@ -30,6 +32,9 @@ const searchFn = (term, searchContext, setIsLoading, setOptions) => {
         case SEARCH_CORES:
             return search(() => searchCores(term)
                 .then((d => d.docs.map(r => ({ ...r, name: r.serial, type: SEARCH_CORES})))), setIsLoading, setOptions);
+        case SEARCH_SHIP:
+            return search(() => searchShip(term)
+                .then((d) => d.docs.map(r => ({ ...r, type: SEARCH_SHIP }))), setIsLoading, setOptions);
         default:
             console.log('Not implemented ', searchContext)
             return null;
@@ -42,8 +47,10 @@ export const handleTransition = (history, item) => {
             history.push(`/x/launch/${item.id}`, { launch: item });
             break;
         case SEARCH_CORES:
-            console.log(item);
             history.push(`/x/core/${item.id}/launches`, { core: item })
+            return;
+        case SEARCH_SHIP:
+            history.push(`/x/ship/${item.id}/launches`, { ship: item })
             return;
         default:
             return;
@@ -75,7 +82,7 @@ export const Search = () => {
                     }
                 }}
             />
-            <div className='row pt-2'>
+            <div className='row pt-3'>
                 <div className='col'>
                 Search By: {SEARCH_CONTEXTS.map((ctx) => <Form.Check inline
                     label={ctx}

@@ -45,6 +45,14 @@ export const searchCores = (term) => {
     return wrapFetch(fn, "core_search");
 };
 
+export const searchShip = (term) => {
+    const regex = { "$regex": term, "$options": "si" };
+    const payload = { "query": { "$or": [ { "name": regex }, { "legacy_id": regex }, { "model": regex }, { "type": regex } , { "home_port": regex } ] } };
+    const fn = () => fetch(`${domain}/ships/query`, { ...defaultPostConfiguration, body: JSON.stringify(payload) }).then(r => r.json());
+    return wrapFetch(fn, "ship_search");
+}
+
+
 export const getCore = (id) => {
     const fn = () => fetch(`${domain}/cores/${id}`).then((r) => r.json());
     return wrapFetch(fn, "core_one");
