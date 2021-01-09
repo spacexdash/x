@@ -8,13 +8,14 @@ import { useLocation, useParams } from 'react-router-dom';
 import { LaunchContextMenu } from './LaunchContextMenu';
 import {
     LAUNCH_PAGE_CONTEXT_MISSION_GALERY, LAUNCH_PAGE_CONTEXT_CORES,
-    LAUNCH_PAGE_CONTEXT_ROCKET, LAUNCH_PAGE_CONTEXT_SHIPS, LAUNCH_PAGE_CONTEXT_PAYLOAD
+    LAUNCH_PAGE_CONTEXT_ROCKET, LAUNCH_PAGE_CONTEXT_SHIPS, LAUNCH_PAGE_CONTEXT_PAYLOAD, LAUNCH_PAGE_CONTEXT_CREW
 } from './LaunchConsts';
 import { CoreCard } from '../cores/CoreCard';
 import { RocketCardStack } from '../rocket/RocketCardStack';
 import { ShipCard } from '../ships/ShipCard';
 import { PayloadCard } from '../payload/PayloadCard';
 import { LaunchGallery } from './LaunchGallery';
+import { CrewCard } from '../crew/CrewCard';
 
 const loadPage = ({ fetchedLaunch, setFetchedLaunch, launchId }) => {
     if (fetchedLaunch.loaded) {
@@ -36,7 +37,7 @@ const ContextCoreComponent = ({ launch }) => launch.cores.map((core, index) => <
 const ContextRocketComponent = ({ launch }) => <RocketCardStack rocket={launch.rocket} />
 const ContextShipComponent = ({ launch }) => launch.ships.map((ship) => <ShipCard key={ship.id} ship={ship} />);
 const ContextPayloadComponent = ({ launch }) => launch.payloads.map((payload) => <PayloadCard key={payload.id} payload={payload} />);
-
+const ContextCrewComponent = ({ launch }) => launch.crew.map((crew) => <CrewCard key={crew.id} crew={crew} />);
 export const componentForContext = (type, launch) => {
     switch (type) {
         case LAUNCH_PAGE_CONTEXT_MISSION_GALERY:
@@ -49,6 +50,8 @@ export const componentForContext = (type, launch) => {
             return <ContextShipComponent launch={launch} />
         case LAUNCH_PAGE_CONTEXT_PAYLOAD:
             return <ContextPayloadComponent launch={launch} />
+        case LAUNCH_PAGE_CONTEXT_CREW:
+            return <ContextCrewComponent launch={launch} />
         default:
             return <span>This context item is not implemented</span>
     }

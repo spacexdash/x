@@ -13,8 +13,10 @@ export const LAUNCH_PAGE_CONTEXT_SHIPS = "Ships";
 export const SEARCH_LAUNCH = "Launches";
 export const SEARCH_CORES = "Cores";
 export const SEARCH_SHIP = "Ships";
+export const SEARCH_CREW = "Crew";
 
 export const LAUNCHES_CORE = "core"
 export const LAUNCHES_SHIP = "ship"
 export const LAUNCHES_UPCOMING = "upcoming";
 export const LAUNCHES_PAST = "past";
+export const LAUNCHES_CREW = "crew";

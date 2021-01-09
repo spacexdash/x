@@ -5,7 +5,7 @@ const defaultQueryHeaders = { 'Content-Type': 'application/json' }
 const defaultPostConfiguration = { method: 'POST', headers: defaultQueryHeaders };
 const defaultLaunchQuery = {
     query: {},
-    options: { populate: ["payloads", "rocket", "landpad", "ships"], sort: { flight_number: "desc" }, limit: 30 }
+    options: { populate: ["payloads", "rocket", "landpad", "launchpad", "ships", "crew"], sort: { flight_number: "desc" }, limit: 30 }
 }
 
 export const getPastLaunches = (page = 1, limit = defaultLaunchQuery.options.limit) => {
@@ -52,6 +52,12 @@ export const searchShip = (term) => {
     return wrapFetch(fn, "ship_search");
 }
 
+export const searchCrew = (term) => {
+    const regex = { "$regex": term, "$options": "si" };
+    const payload = { "query": { "$or": [ { "name": regex }, { "agency": regex } ] } };
+    const fn = () => fetch(`${domain}/crew/query`, { ...defaultPostConfiguration, body: JSON.stringify(payload) }).then(r => r.json());
+    return wrapFetch(fn, "crew_search");
+}
 
 export const getCore = (id) => {
     const fn = () => fetch(`${domain}/cores/${id}`).then((r) => r.json());
@@ -62,6 +68,11 @@ export const getShip = (id) => {
     const fn = () => fetch(`${domain}/ships/${id}`).then((r) => r.json());
     return wrapFetch(fn, "ship_one");
 }
+
+export const getCrew = (id) => {
+    const fn = () => fetch(`${domain}/crew/${id}`).then((r) => r.json());
+    return wrapFetch(fn, "crew_one");
+};
 
 export const getLaunches = (ids, page=1) => {
     const payload = { 

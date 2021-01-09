@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import { searchCores, searchLaunches, searchShip } from '../../service/SpaceXApi';
+import { searchCores, searchLaunches, searchShip, searchCrew } from '../../service/SpaceXApi';
 import { AsyncTypeahead } from 'react-bootstrap-typeahead';
 import { Card, Form } from 'react-bootstrap';
 import {
     SEARCH_CORES,
     SEARCH_LAUNCH,
-    SEARCH_SHIP
+    SEARCH_SHIP,
+    SEARCH_CREW
 } from '../launches/LaunchConsts';
 import { useHistory } from 'react-router-dom';
 const filterBy = () => true;
@@ -17,12 +18,13 @@ const search = (fn, setIsLoading, setOptions) => {
     }).catch(() => setIsLoading(false))
 }
 
-const SEARCH_CONTEXTS = [ SEARCH_LAUNCH, SEARCH_CORES, SEARCH_SHIP ];
+const SEARCH_CONTEXTS = [ SEARCH_LAUNCH, SEARCH_CORES, SEARCH_CREW, SEARCH_SHIP ];
 
 const SEARCH_PLACEHOLDERS = {
     [SEARCH_LAUNCH]: 'Search for a launch e.g. STP-2',
     [SEARCH_CORES]: 'Search for launch by cores e.g. B1040',
-    [SEARCH_SHIP]: 'Search for launch by ships e.g. JRTI'
+    [SEARCH_SHIP]: 'Search for launch by ships e.g. JRTI',
+    [SEARCH_CREW]: 'Search for launch by crew e.g. NASA'
 };
 const searchFn = (term, searchContext, setIsLoading, setOptions) => {
     switch(searchContext) {
@@ -32,6 +34,9 @@ const searchFn = (term, searchContext, setIsLoading, setOptions) => {
         case SEARCH_CORES:
             return search(() => searchCores(term)
                 .then((d => d.docs.map(r => ({ ...r, name: r.serial, type: SEARCH_CORES})))), setIsLoading, setOptions);
+        case SEARCH_CREW:
+            return search(() => searchCrew(term)
+                .then((d => d.docs.map(r => ({ ...r, type: SEARCH_CREW})))), setIsLoading, setOptions);
         case SEARCH_SHIP:
             return search(() => searchShip(term)
                 .then((d) => d.docs.map(r => ({ ...r, type: SEARCH_SHIP }))), setIsLoading, setOptions);
@@ -48,12 +53,15 @@ export const handleTransition = (history, item) => {
             break;
         case SEARCH_CORES:
             history.push(`/x/core/${item.id}/launches`, { core: item })
-            return;
+            break;
+        case SEARCH_CREW:
+            history.push(`/x/crew/${item.id}/launches`, { crew: item })
+            break;
         case SEARCH_SHIP:
             history.push(`/x/ship/${item.id}/launches`, { ship: item })
-            return;
+            break;
         default:
-            return;
+            break;
     }
 }
 

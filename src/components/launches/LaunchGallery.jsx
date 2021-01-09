@@ -2,7 +2,7 @@ import { React } from 'react';
 import { Card } from 'react-bootstrap';
 import {
     LAUNCH_PAGE_CONTEXT_MISSION_GALERY,
-    LAUNCH_PAGE_CONTEXT_CORES, LAUNCH_PAGE_CONTEXT_ROCKET, LAUNCH_PAGE_CONTEXT_SHIPS, LAUNCH_PAGE_CONTEXT_PAYLOAD
+    LAUNCH_PAGE_CONTEXT_CORES, LAUNCH_PAGE_CONTEXT_ROCKET, LAUNCH_PAGE_CONTEXT_SHIPS, LAUNCH_PAGE_CONTEXT_PAYLOAD, LAUNCH_PAGE_CONTEXT_CREW
 } from './LaunchConsts';
 
 const imagesForContext = (launch,  context) => {
@@ -17,6 +17,8 @@ const imagesForContext = (launch,  context) => {
             return launch.ships.map((ship) => ship.image);
         case LAUNCH_PAGE_CONTEXT_PAYLOAD:
             return launch.links.flickr.original;
+        case LAUNCH_PAGE_CONTEXT_CREW:
+            return launch.crew.map((crew) => crew.image);
         default:
             return [];
     }

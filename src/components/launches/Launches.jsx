@@ -1,21 +1,24 @@
 import { React, useEffect, useState } from 'react';
 import { MainLayout } from '../layout/MainLayout';
 import { useLocation, useParams } from 'react-router-dom';
-import { LAUNCHES_CORE, LAUNCHES_PAST, LAUNCHES_SHIP, LAUNCHES_UPCOMING } from './LaunchConsts';
-import { getCore, getLaunches, getShip, getUpcomingLaunches, getPastLaunches } from '../../service/SpaceXApi';
+import { LAUNCHES_CORE, LAUNCHES_CREW, LAUNCHES_PAST, LAUNCHES_SHIP, LAUNCHES_UPCOMING } from './LaunchConsts';
+import { getCore, getLaunches, getShip, getUpcomingLaunches, getPastLaunches, getCrew } from '../../service/SpaceXApi';
 import { LaunchCardRow } from './LaunchCardRow';
 import { Card, Button } from 'react-bootstrap';
 import { Loader } from 'react-bootstrap-typeahead';
 
 // lol pls refactor
 const loadWithPreReq = (id, ctx, setLaunches, launches, page) => {
-    console.log('LOAD WITH PRE-REQ', launches);
+    console.log('Loading via pre-reqs', launches);
     switch (ctx) {
         case LAUNCHES_CORE:
             return getCore(id)
                 .then((res) => loadLaunchesFromIds(res.launches, setLaunches, launches, page))
         case LAUNCHES_SHIP:
             return getShip(id)
+                .then((res) => loadLaunchesFromIds(res.launches, setLaunches, launches, page))
+        case LAUNCHES_CREW:
+            return getCrew(id)
                 .then((res) => loadLaunchesFromIds(res.launches, setLaunches, launches, page))
         case LAUNCHES_UPCOMING:
             return getUpcomingLaunches(page)
@@ -50,7 +53,7 @@ const load = (id, ctx, location, launches, setLaunches) => {
 };
 
 const getLaunchesContext = (location) => {
-    // should probably map over an array here.
+    // todo - should probably map over an array here.
     if (location.pathname.includes(LAUNCHES_CORE)) {
         return LAUNCHES_CORE;
     } else if (location.pathname.includes(LAUNCHES_SHIP)) {
@@ -59,6 +62,8 @@ const getLaunchesContext = (location) => {
         return LAUNCHES_UPCOMING;
     } else if (location.pathname.includes(LAUNCHES_PAST)) {
         return LAUNCHES_PAST;
+    } else if (location.pathname.includes(LAUNCHES_CREW)) {
+        return LAUNCHES_CREW;
     }
 }
 
