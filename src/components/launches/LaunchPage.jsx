@@ -74,7 +74,7 @@ export const LaunchPage = () => {
                     <div className='col-sm-12 col-md-9'>
                         <div className='row'>
                             {shouldRender && <Card.Title className='col-auto'>{launch.name}</Card.Title>}
-                            {shouldRender && <div className='col-auto text-left'><LaunchIndicators launch={launch} /></div>}
+                            {shouldRender && !launch.upcoming && <div className='col-auto text-left'><LaunchIndicators launch={launch} /></div>}
                         </div>
                         <div className='row'>
                             {shouldRender && <span className=' col'>{launch.details}</span>}
