@@ -68,19 +68,22 @@ export const LaunchPage = () => {
     useEffect(() => loadPage({ fetchedLaunch, setFetchedLaunch, launchId }));
     console.log('Active launch', launch);
     return <MainLayout>
-        <Card>
+        <Card className='mt-3'>
             <Card.Body>
                 <div className='row'>
+                    <div className='col-12 d-md-none text-center'>
+                        {shouldRender && <img style={{ height: '120px' }} src={launch.links.patch.small}></img>}
+                    </div>
                     <div className='col-sm-12 col-md-9'>
                         <div className='row'>
                             {shouldRender && <Card.Title className='col-auto'>{launch.name}</Card.Title>}
-                            {shouldRender && !launch.upcoming && <div className='col-auto text-left'><LaunchIndicators launch={launch} /></div>}
+                            {shouldRender && !launch.upcoming && <div className='col-auto ml-auto text-left'><LaunchIndicators launch={launch} /></div>}
                         </div>
                         <div className='row'>
                             {shouldRender && <span className=' col'>{launch.details}</span>}
                         </div>
                     </div>
-                    <div className='col-sm-12 col-md-3 text-right'>
+                    <div className='col-md-3 d-none d-md-block text-right'>
                         {shouldRender && <img style={{ height: '150px' }} src={launch.links.patch.small}></img>}
                     </div>
                 </div>

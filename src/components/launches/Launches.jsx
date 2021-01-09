@@ -70,7 +70,7 @@ export const Launches = () => {
     useEffect(() => load(id, launchCtx, location, launches, setLaunches));
     const allowMoreLoad = (!launches.isLoading && launches.data.page < launches.data.totalPages);
     return <MainLayout>
-        <Card>
+        <Card className='mt-3'>
             <Card.Body>
                 <Card.Title>{'Launches'}</Card.Title>
                 {launches.data.docs.map((launch) => <LaunchCardRow key={launch.id} launch={launch} />)}
