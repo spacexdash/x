@@ -13,10 +13,10 @@ const Disclaimer = () => {
         <p className='text-muted'>
             <small>
                 {DISCLAIMER}
-                All data gathered here was provided by the community via 
-                <a href='https://github.com/r-spacex/SpaceX-API' target="_new">r-spacex/SpaceX-API.</a>
-                If you think there's missing data or if you have information for an upcoming launch you can raise an issue 
-                <a href="https://github.com/r-spacex/SpaceX-API/issues" target="_new">here</a>. 
+                All data gathered here was provided by the community via&nbsp;
+                <a href='https://github.com/r-spacex/SpaceX-API' target="_new">r-spacex/SpaceX-API</a>.
+                If you think there's inaccurate data or if you have information for an upcoming launch you can raise an issue&nbsp;
+                <a href="https://github.com/r-spacex/SpaceX-API/issues" target="_new">here</a>.
                 For bugs and feature requests you can submit requests <a href="https://github.com/spacexdash/x/issues" target="_new">here</a>
             </small>
         </p>
