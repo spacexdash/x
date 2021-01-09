@@ -10,10 +10,9 @@ const handlePush = (e, push, id, launch) => {
 };
 
 export const LaunchCardRow = (props) => {
-    const { id, name, date_utc, date_precision, success, payloads, details } = props.launch;
+    const { id, name, date_utc, date_precision, success, payloads } = props.launch;
     const customers = payloads.map(p => p.customers.join(', ')).flat();
     const { push } = useHistory();
-    const shouldLock = (details === null || details === "");
     return <li className={`list-group-item launch-card-row`} onClick={(e) => handlePush(e, push, id, props.launch)} >
         <div className='row'>
             <h6 className='col'>

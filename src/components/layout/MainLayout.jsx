@@ -1,6 +1,7 @@
 import React from 'react';
 import { Navbar } from 'react-bootstrap';
 import { useHistory } from 'react-router-dom';
+import { Disclaimer } from '../disclaimer/Disclaimer';
 
 export const MainLayout = (props) => {
     const history = useHistory();
@@ -14,6 +15,7 @@ export const MainLayout = (props) => {
 
         <div className='container-fluid bg-light'>
             {props.children}
+            <Disclaimer />
         </div>
     </div>
 }

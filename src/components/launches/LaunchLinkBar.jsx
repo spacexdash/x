@@ -11,7 +11,7 @@ const LINK_ICONS = {
     'reddit': 'bi bi-chat-right-quote-fill'
 };
 const getUrl = (type, links) => {
-    if (type == 'reddit') {
+    if (type === 'reddit') {
         return 'launch' in links[type] ? links[type]['launch'] : `https://reddit.com/r/spacex`;
     } else {
         return links[type]

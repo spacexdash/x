@@ -24,7 +24,7 @@ export const CrewCard = ( { crew } ) => {
                 <div className='col'>
                 <small>
                     <Button variant='link' className='ml-0 pl-0' onClick={() => history.push(`/x/crew/${crew.id}/launches`, { crew: crew })}>
-                        <small>More SpaceX Launches from This Crew Member</small>
+                        <small>More SpaceX Launches From This Crew Member</small>
                     </Button>
                 </small>
                 </div>

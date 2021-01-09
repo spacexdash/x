@@ -55,7 +55,7 @@ export const LaunchCard = (props) => {
     const history = useHistory();
     const { type } = props;
     const [launchData, setLaunchData] = useState({ data: { totalDocs: 0, docs: [] }, hasLoaded: false, isLoading: false, error: null });
-    useEffect(() => loadCard( type, launchData, setLaunchData));
+    useEffect(() => loadCard( type, launchData, setLaunchData), [type, launchData]);
 
     return <Card>
         <Card.Body>

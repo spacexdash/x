@@ -14,7 +14,7 @@ export const LaunchpadCard = ({ launchpad }) => {
     const history = useHistory();
     const [rockets, setRockets] = useState({ data: {}, hasLoaded: false, error: null });
     const canDisplayRocketInfo = (rockets.hasLoaded && !rockets.error && rockets.data.docs.length > 0);
-    useEffect(() => loadRockets(launchpad.rockets, rockets, setRockets));
+    useEffect(() => loadRockets(launchpad.rockets, rockets, setRockets), [launchpad, rockets]);
 
     return <Card>
         <Card.Body>
@@ -63,7 +63,7 @@ export const LaunchpadCard = ({ launchpad }) => {
                 <div className='col'>
                 <small>
                     <Button variant='link' className='ml-0 pl-0' onClick={() => history.push(`/x/launchpad/${launchpad.id}/launches`, { launchpad: launchpad })}>
-                        <small>More Launches from This Pad</small>
+                        <small>More Launches From This Pad</small>
                     </Button>
                 </small>
                 </div>

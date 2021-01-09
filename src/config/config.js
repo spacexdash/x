@@ -1,4 +1,4 @@
-export default {
+const config = {
     version: {
         spaceXApi: "v4"
     },
@@ -8,4 +8,5 @@ export default {
     mocks: {
         spaceXApi: true,
     }
-}   
+}
+export default config;

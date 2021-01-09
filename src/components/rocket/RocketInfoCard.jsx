@@ -1,6 +1,5 @@
 import { React } from 'react';
 import { Card } from 'react-bootstrap';
-import { RocketStageCard } from './RocketStageCard';
 
 export const RocketInfoCard = ({ rocket }) => {
     return <Card>

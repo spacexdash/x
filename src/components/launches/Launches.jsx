@@ -77,7 +77,7 @@ export const Launches = () => {
     const { id } = useParams();
     const [launches, setLaunches] = useState({ data: { docs: [], page: 0, totalPages: 2 }, hasLoaded: false, isLoading: false, error: null });
     const launchCtx = getLaunchesContext(location);
-    useEffect(() => load(id, launchCtx, location, launches, setLaunches));
+    useEffect(() => load(id, launchCtx, location, launches, setLaunches), [id, launchCtx, location, launches]);
     const allowMoreLoad = (!launches.isLoading && launches.data.page < launches.data.totalPages);
     return <MainLayout>
         <Card className='mt-3'>
@@ -85,7 +85,7 @@ export const Launches = () => {
                 <Card.Title>{'Launches'}</Card.Title>
                 {launches.data.docs.map((launch) => <LaunchCardRow key={launch.id} launch={launch} />)}
                 <div className='mt-3'>
-                    {allowMoreLoad && <Button onClick={() => {
+                    {allowMoreLoad && <Button variant='link' onClick={() => {
                         setLaunches({ ...launches, hasLoaded: false });
                     }}>More</Button>}
                     {launches.isLoading && <Loader />}

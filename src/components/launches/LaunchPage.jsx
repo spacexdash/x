@@ -73,19 +73,21 @@ export const LaunchPage = () => {
     const [activeContext, setActiveContext] = useState(LAUNCH_PAGE_CONTEXT_ROCKET)
     const launch = (existsInLocationState(location)) ? location.state.launch : fetchedLaunch.data;
     const shouldRender = (fetchedLaunch.loaded && !fetchedLaunch.error);
+    const displayMissionPatch = (shouldRender && launch.links.patch.small !== null);
+    const colBody = (displayMissionPatch) ? 'col-sm-12 col-md-9' : 'col-12'
     const detials = (launch.details !== null) ? launch.details :
-        <span className='text-muted'>We do not have enough details to provide more mission details right now. 
+        <span className='text-muted'>We do not have enough details to provide more mission details right now.
         Check back later for more information.</span>
-    useEffect(() => loadPage({ fetchedLaunch, setFetchedLaunch, launchId }));
+    useEffect(() => loadPage({ fetchedLaunch, setFetchedLaunch, launchId }), [fetchedLaunch, launchId]);
     console.log('Active launch', launch);
     return <MainLayout>
         <Card className='mt-3'>
             <Card.Body>
                 <div className='row'>
-                    <div className='col-12 d-md-none text-center'>
-                        {shouldRender && launch.links.patch.small !== null && <img style={{ height: '120px' }} src={launch.links.patch.small}></img>}
-                    </div>
-                    <div className='col-sm-12 col-md-9'>
+                    {displayMissionPatch && <div className='col-12 d-md-none text-center'>
+                        <img style={{ height: '120px' }} src={launch.links.patch.small} alt='mission-patch'/>
+                    </div>}
+                    <div className={colBody}>
                         <div className='row'>
                             {shouldRender && <Card.Title className='col-auto'>{launch.name}</Card.Title>}
                             {shouldRender && !launch.upcoming && <div className='col-auto ml-auto text-left'><LaunchIndicators launch={launch} /></div>}
@@ -94,9 +96,9 @@ export const LaunchPage = () => {
                             {shouldRender && <span className=' col'>{detials}</span>}
                         </div>
                     </div>
-                    <div className='col-md-3 d-none d-md-block text-right'>
-                        {shouldRender && launch.links.patch.small !== null && <img style={{ height: '150px' }} src={launch.links.patch.small}></img>}
-                    </div>
+                    {displayMissionPatch && <div className='col-md-3 d-none d-md-block text-right'>
+                        <img style={{ height: '150px' }} src={launch.links.patch.small} alt='mission-patch'/>
+                    </div>}
                 </div>
                 <div className='row pt-2 '>
                     <div className='col'>

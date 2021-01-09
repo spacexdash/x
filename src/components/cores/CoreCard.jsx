@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import {Link, useHistory} from 'react-router-dom';
+import {useHistory} from 'react-router-dom';
 import { Card, Button} from 'react-bootstrap';
 import { Loader } from 'react-bootstrap-typeahead';
 import { getCore } from '../../service/SpaceXApi';
@@ -18,7 +18,7 @@ const MoreLaunches = ({ enhancedCore, serial }) => {
     const launchState = { core: enhancedCore };
     return <small>
         <Button variant='link' className='ml-0 pl-0' onClick={() => history.push(`/x/core/${enhancedCore.id}/launches`, launchState)}>
-            <small>More Launches from This Core</small>
+            <small>More Launches From This Core</small>
         </Button>
     </small>
 };
@@ -55,7 +55,7 @@ const getPreviousLaunches = (core) => {
 export const CoreCard = ({ core, index }) => {
     const id = core.core;
     const [enhancedCore, setEnhancedCore] = useState({ data: {}, hasLoaded: false, error: null });
-    useEffect(() => loadEnhanced({ id, enhancedCore, setEnhancedCore }));
+    useEffect(() => loadEnhanced({ id, enhancedCore, setEnhancedCore }), [id, enhancedCore]);
     const canDisplayEnhanced = (enhancedCore.hasLoaded && !enhancedCore.error);
     const serial = (canDisplayEnhanced) ? <small className='text-muted'> This core uses the serial number <strong>{enhancedCore.data.serial}</strong></small> : <Loader />;
     const moreLaunches = (canDisplayEnhanced && enhancedCore.data.reuse_count > 0) ? <MoreLaunches enhancedCore={enhancedCore.data} /> : null;
