@@ -73,6 +73,9 @@ export const LaunchPage = () => {
     const [activeContext, setActiveContext] = useState(LAUNCH_PAGE_CONTEXT_ROCKET)
     const launch = (existsInLocationState(location)) ? location.state.launch : fetchedLaunch.data;
     const shouldRender = (fetchedLaunch.loaded && !fetchedLaunch.error);
+    const detials = (launch.details !== null) ? launch.details :
+        <span className='text-muted'>We do not have enough details to provide more mission details right now. 
+        Check back later for more information.</span>
     useEffect(() => loadPage({ fetchedLaunch, setFetchedLaunch, launchId }));
     console.log('Active launch', launch);
     return <MainLayout>
@@ -88,7 +91,7 @@ export const LaunchPage = () => {
                             {shouldRender && !launch.upcoming && <div className='col-auto ml-auto text-left'><LaunchIndicators launch={launch} /></div>}
                         </div>
                         <div className='row'>
-                            {shouldRender && <span className=' col'>{launch.details}</span>}
+                            {shouldRender && <span className=' col'>{detials}</span>}
                         </div>
                     </div>
                     <div className='col-md-3 d-none d-md-block text-right'>

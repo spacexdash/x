@@ -15,12 +15,12 @@ const ITEMS = [
     LAUNCH_PAGE_CONTEXT_MISSION_GALERY,
 ];
 const ITEM_CONDITIONS = {
-    [LAUNCH_PAGE_CONTEXT_MISSION_GALERY]: () => true,
+    [LAUNCH_PAGE_CONTEXT_MISSION_GALERY]: (launch) => "links" in launch && "flickr" in launch.links && launch.links.flickr.original.length > 0,
     [LAUNCH_PAGE_CONTEXT_CREW]: (launch) => "crew" in launch && Array.isArray(launch.crew) && launch.crew.length > 0, // needs query changes
     [LAUNCH_PAGE_CONTEXT_ROCKET]: (launch) => "rocket" in launch && typeof launch.rocket === "object",
     [LAUNCH_PAGE_CONTEXT_CORES]: (launch) => "cores" in launch && typeof Array.isArray(launch.cores) && launch.cores.length > 0 && launch.cores[0].core !== null,
     [LAUNCH_PAGE_CONTEXT_PAYLOAD]: (launch) => "payloads" in launch && Array.isArray(launch.payloads) && launch.payloads.length > 0,
-    [LAUNCH_PAGE_CONTEXT_LAUNCHPAD]: (launch) => true,
+    [LAUNCH_PAGE_CONTEXT_LAUNCHPAD]: (launch) => "launchpad" in launch,
     [LAUNCH_PAGE_CONTEXT_LANDINGZONE]: (launch) => false, // todo needs query changes i think
     [LAUNCH_PAGE_CONTEXT_SHIPS]: (launch) => "ships" in launch && Array.isArray(launch.ships) && launch.ships.length > 0,
 };

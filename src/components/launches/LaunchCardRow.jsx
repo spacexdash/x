@@ -3,11 +3,9 @@ import { bestDateTime } from '../../util/date';
 import { LaunchIndicators } from './LaunchIndicators';
 import { useHistory } from 'react-router-dom';
 
-const handlePush = (e, push, id, launch, shouldLock) => {
-    if (!shouldLock) {
-        if ((e.target.id !== 'icon-tooltip')) {
-            push(`/x/launch/${id}`, { launch: launch });
-        }
+const handlePush = (e, push, id, launch) => {
+    if ((e.target.id !== 'icon-tooltip')) {
+        push(`/x/launch/${id}`, { launch: launch });
     }
 };
 
@@ -16,8 +14,7 @@ export const LaunchCardRow = (props) => {
     const customers = payloads.map(p => p.customers.join(', ')).flat();
     const { push } = useHistory();
     const shouldLock = (details === null || details === "");
-    const disabledClass = (shouldLock) ? `disable-row` : false;
-    return <li className={`list-group-item launch-card-row ${disabledClass}`} onClick={(e) => handlePush(e, push, id, props.launch, shouldLock)} >
+    return <li className={`list-group-item launch-card-row`} onClick={(e) => handlePush(e, push, id, props.launch)} >
         <div className='row'>
             <h6 className='col'>
                 {name}
@@ -27,7 +24,7 @@ export const LaunchCardRow = (props) => {
             </div>}
         </div>
         <div className='row'>
-            {customers.length > 0 && <small className='col text-muted'>{customers}</small> }
+            {customers.length > 0 && <small className='col text-muted'>{customers}</small>}
             <small className='col mr-auto text-right text-muted'>
                 {`${bestDateTime({ date_utc, date_precision })}`}
             </small>
