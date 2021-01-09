@@ -17,7 +17,7 @@ const MoreLaunches = ({ enhancedCore, serial }) => {
     const history = useHistory();
     const launchState = { core: enhancedCore };
     return <small>
-        <Button variant='link' className='ml-0 pl-0' onClick={() => history.push(`/x/core/${enhancedCore.id}/launches`, launchState)}>
+        <Button variant='link' className='ml-0 pl-0' onClick={() => history.push(`/core/${enhancedCore.id}/launches`, launchState)}>
             <small>More Launches from This Core</small>
         </Button>
     </small>

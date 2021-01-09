@@ -6,7 +6,7 @@ const MoreLaunches = ({ ship }) => {
     const history = useHistory();
     const launchState = { ship: ship };
     return <small>
-        <Button variant='link' className='ml-0 pl-0' onClick={() => history.push(`/x/ship/${ship.id}/launches`, launchState)}>
+        <Button variant='link' className='ml-0 pl-0' onClick={() => history.push(`/ship/${ship.id}/launches`, launchState)}>
             <small>Other Launches That Used This Ship</small>
         </Button>
     </small>

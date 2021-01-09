@@ -3,7 +3,7 @@
 //   getAllLaunches(), getPastLaunches(), getUpcomingLaunches(), getNextLaunches(), getLatestLaunches()
 // ];
 // Promise.all(promises).then((response) => console.log(response));
-import { BrowserRouter as Router } from 'react-router-dom';
+import { HashRouter as Router } from 'react-router-dom';
 import routes from './routes';
 
 function App() {

@@ -62,7 +62,7 @@ export const LaunchpadCard = ({ launchpad }) => {
             {<div className='row'>
                 <div className='col'>
                 <small>
-                    <Button variant='link' className='ml-0 pl-0' onClick={() => history.push(`/x/launchpad/${launchpad.id}/launches`, { launchpad: launchpad })}>
+                    <Button variant='link' className='ml-0 pl-0' onClick={() => history.push(`/launchpad/${launchpad.id}/launches`, { launchpad: launchpad })}>
                         <small>More Launches from This Pad</small>
                     </Button>
                 </small>

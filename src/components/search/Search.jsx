@@ -54,19 +54,19 @@ const searchFn = (term, searchContext, setIsLoading, setOptions) => {
 export const handleTransition = (history, item) => {
     switch (item.type) {
         case SEARCH_LAUNCH:
-            history.push(`/x/launch/${item.id}`, { launch: item });
+            history.push(`/launch/${item.id}`, { launch: item });
             break;
         case SEARCH_CORES:
-            history.push(`/x/core/${item.id}/launches`, { core: item })
+            history.push(`/core/${item.id}/launches`, { core: item })
             break;
         case SEARCH_CREW:
-            history.push(`/x/crew/${item.id}/launches`, { crew: item })
+            history.push(`/crew/${item.id}/launches`, { crew: item })
             break;
         case SEARCH_SHIP:
-            history.push(`/x/ship/${item.id}/launches`, { ship: item })
+            history.push(`/ship/${item.id}/launches`, { ship: item })
             break;
         case SEARCH_LAUNCHPAD:
-            history.push(`/x/launchpad/${item.id}/launches`, { launchpad: item })
+            history.push(`/launchpad/${item.id}/launches`, { launchpad: item })
             break;
         default:
             break;

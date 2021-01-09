@@ -4,7 +4,7 @@ import { useHistory } from 'react-router-dom';
 
 export const MainLayout = (props) => {
     const history = useHistory();
-    const homeRedirect = (!history) ? null : () => history.push('/x');
+    const homeRedirect = (!history) ? null : () => history.push('/');
 
     return <div className='app-main-layout'>
         <Navbar sticky="top" bg='dark' variant='dark' onClick={homeRedirect}>

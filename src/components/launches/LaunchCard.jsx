@@ -21,9 +21,9 @@ const getTitle = (type) => {
 const getMoreUrl = (type) => {
     switch(type) {
         case LAUNCH_DATA_TYPE_PAST:
-            return `/x/launches/past`;
+            return `/launches/past`;
         case LAUNCH_DATA_TYPE_UPCOMING:
-            return `/x/launches/upcoming`;
+            return `/launches/upcoming`;
         default:
             return '/'
     }
