@@ -75,7 +75,7 @@ export const LaunchPage = () => {
             <Card.Body>
                 <div className='row'>
                     <div className='col-12 d-md-none text-center'>
-                        {shouldRender && <img style={{ height: '120px' }} src={launch.links.patch.small}></img>}
+                        {shouldRender && launch.links.patch.small !== null && <img style={{ height: '120px' }} src={launch.links.patch.small}></img>}
                     </div>
                     <div className='col-sm-12 col-md-9'>
                         <div className='row'>
@@ -87,7 +87,7 @@ export const LaunchPage = () => {
                         </div>
                     </div>
                     <div className='col-md-3 d-none d-md-block text-right'>
-                        {shouldRender && <img style={{ height: '150px' }} src={launch.links.patch.small}></img>}
+                        {shouldRender && launch.links.patch.small !== null && <img style={{ height: '150px' }} src={launch.links.patch.small}></img>}
                     </div>
                 </div>
                 <div className='row pt-2 '>

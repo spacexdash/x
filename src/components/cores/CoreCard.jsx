@@ -63,10 +63,10 @@ export const CoreCard = ({ core, index }) => {
     return <Card>
         <Card.Body>
             <div className='row'>
-                <div className='col-sm-12 col-md-6'>
+                <div className='col-6 col-md-6'>
                     Core {index + 1}
                 </div>
-                <div className='col-sm-12 col-md-6 text-sm-left text-md-right'>
+                <div className='col-6 text-right'>
                     <LandingIndicators cores={[core]} />
                 </div>
             </div>
