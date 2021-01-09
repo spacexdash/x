@@ -1,0 +1,183 @@
+{
+    "docs": [
+        {
+            "block": 4,
+            "reuse_count": 1,
+            "rtls_attempts": 1,
+            "rtls_landings": 1,
+            "asds_attempts": 0,
+            "asds_landings": 0,
+            "last_update": "Stage Expended",
+            "launches": [
+                "5eb87d09ffd86e000604b358",
+                "5eb87d1bffd86e000604b368"
+            ],
+            "serial": "B1040",
+            "status": "expended",
+            "id": "5e9e28a4f3591845123b264f"
+        },
+        {
+            "block": 4,
+            "reuse_count": 1,
+            "rtls_attempts": 0,
+            "rtls_landings": 0,
+            "asds_attempts": 1,
+            "asds_landings": 1,
+            "last_update": "Stage Expended",
+            "launches": [
+                "5eb87d0affd86e000604b359",
+                "5eb87d16ffd86e000604b363"
+            ],
+            "serial": "B1041",
+            "status": "expended",
+            "id": "5e9e28a4f3591843103b2650"
+        },
+        {
+            "block": 4,
+            "reuse_count": 0,
+            "rtls_attempts": 0,
+            "rtls_landings": 0,
+            "asds_attempts": 1,
+            "asds_landings": 1,
+            "last_update": "Retired. ",
+            "launches": [
+                "5eb87d0dffd86e000604b35b"
+            ],
+            "serial": "B1042",
+            "status": "inactive",
+            "id": "5e9e28a4f359185cc03b2651"
+        },
+        {
+            "block": 4,
+            "reuse_count": 1,
+            "rtls_attempts": 1,
+            "rtls_landings": 1,
+            "asds_attempts": 0,
+            "asds_landings": 0,
+            "last_update": "Stage Expended",
+            "launches": [
+                "5eb87d10ffd86e000604b35e",
+                "5eb87d1affd86e000604b367"
+            ],
+            "serial": "B1043",
+            "status": "expended",
+            "id": "5e9e28a4f35918345e3b2652"
+        },
+        {
+            "block": 4,
+            "reuse_count": 0,
+            "rtls_attempts": 0,
+            "rtls_landings": 0,
+            "asds_attempts": 0,
+            "asds_landings": 0,
+            "last_update": "Stage Expended",
+            "launches": [
+                "5eb87d15ffd86e000604b362"
+            ],
+            "serial": "B1044",
+            "status": "expended",
+            "id": "5e9e28a5f359186cb73b2654"
+        },
+        {
+            "block": 4,
+            "reuse_count": 1,
+            "rtls_attempts": 0,
+            "rtls_landings": 0,
+            "asds_attempts": 1,
+            "asds_landings": 1,
+            "last_update": "Stage Expended",
+            "launches": [
+                "5eb87d18ffd86e000604b365",
+                "5eb87d1cffd86e000604b369"
+            ],
+            "serial": "B1045",
+            "status": "expended",
+            "id": "5e9e28a5f35918863d3b2655"
+        },
+        {
+            "block": 5,
+            "reuse_count": 3,
+            "rtls_attempts": 0,
+            "rtls_landings": 0,
+            "asds_attempts": 3,
+            "asds_landings": 3,
+            "last_update": "Stage Expended",
+            "launches": [
+                "5eb87d19ffd86e000604b366",
+                "5eb87d20ffd86e000604b36c",
+                "5eb87d25ffd86e000604b370",
+                "5eb87d3dffd86e000604b381"
+            ],
+            "serial": "B1046",
+            "status": "expended",
+            "id": "5e9e28a5f359182b023b2656"
+        },
+        {
+            "block": 5,
+            "reuse_count": 2,
+            "rtls_attempts": 0,
+            "rtls_landings": 0,
+            "asds_attempts": 2,
+            "asds_landings": 2,
+            "last_update": "Stage Expended",
+            "launches": [
+                "5eb87d1effd86e000604b36a",
+                "5eb87d24ffd86e000604b36f",
+                "5eb87d37ffd86e000604b37c"
+            ],
+            "serial": "B1047",
+            "status": "expended",
+            "id": "5e9e28a5f359181eed3b2657"
+        },
+        {
+            "block": 5,
+            "reuse_count": 4,
+            "rtls_attempts": 1,
+            "rtls_landings": 1,
+            "asds_attempts": 3,
+            "asds_landings": 3,
+            "last_update": "Landing burn not performed after premature engine shutdown during ascent",
+            "launches": [
+                "5eb87d1fffd86e000604b36b",
+                "5eb87d23ffd86e000604b36e",
+                "5eb87d2affd86e000604b374",
+                "5eb87d39ffd86e000604b37d",
+                "5eb87d43ffd86e000604b385"
+            ],
+            "serial": "B1048",
+            "status": "lost",
+            "id": "5e9e28a5f3591809c03b2658"
+        },
+        {
+            "block": 5,
+            "reuse_count": 6,
+            "rtls_attempts": 0,
+            "rtls_landings": 0,
+            "asds_attempts": 7,
+            "asds_landings": 7,
+            "last_update": "Landed on OCISLY as of Nov 24, 2020 ",
+            "launches": [
+                "5eb87d22ffd86e000604b36d",
+                "5eb87d28ffd86e000604b373",
+                "5eb87d30ffd86e000604b378",
+                "5eb87d3cffd86e000604b380",
+                "5eb87d45ffd86e000604b387",
+                "5ed981d91f30554030d45c2a",
+                "5fb95b3f3a88ae63c954603c"
+            ],
+            "serial": "B1049",
+            "status": "unknown",
+            "id": "5e9e28a5f3591833b13b2659"
+        }
+    ],
+    "totalDocs": 10,
+    "offset": 0,
+    "limit": 10,
+    "totalPages": 1,
+    "page": 1,
+    "pagingCounter": 1,
+    "hasPrevPage": false,
+    "hasNextPage": false,
+    "prevPage": null,
+    "nextPage": null
+}
