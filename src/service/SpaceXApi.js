@@ -39,6 +39,12 @@ export const searchLaunches = (term) => {
     return wrapFetch(fn, "launches_search");
 };
 
+export const searchCores = (term) => {
+    const payload = { "query": { "serial": { "$regex": term, "$options": "si" } } };
+    const fn = () => fetch(`${domain}/cores/query`, { ...defaultPostConfiguration, body: JSON.stringify(payload) }).then(r => r.json());
+    return wrapFetch(fn, "core_search");
+};
+
 export const getCore = (id) => {
     const fn = () => fetch(`${domain}/cores/${id}`).then((r) => r.json());
     return wrapFetch(fn, "core_one");
