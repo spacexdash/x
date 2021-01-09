@@ -27,6 +27,27 @@ export const getUpcomingLaunches = (page = 1, limit = defaultLaunchQuery.options
     return wrapFetch(fn, "launches_upcoming");
 }
 
+export const getLaunchesByRocket = (id, page = 1, limit = defaultLaunchQuery.options.limit) => {
+    const payload = { 
+        ...defaultLaunchQuery, 
+        query: { ...defaultLaunchQuery.query, upcoming: false, "rocket": { "_id" : id } },
+        options: { ...defaultLaunchQuery.options, limit: limit, page: page }
+    };
+    const fn = () => fetch(`${domain}/launches/query`, { ...defaultPostConfiguration, body: JSON.stringify(payload) }).then(r => r.json());
+    return wrapFetch(fn, "launches_upcoming");   
+}
+
+export const getLaunches = (ids, page=1) => {
+    const payload = { 
+        ...defaultLaunchQuery,
+        query: { ...defaultLaunchQuery.query, "_id": { "$in": ids }},
+        options: { ...defaultLaunchQuery.options, page: page }
+    };
+    const fn = () => fetch(`${domain}/launches/query`, { ...defaultPostConfiguration, body: JSON.stringify(payload) }).then(r => r.json());
+    return fn();
+    // return wrapFetch(fn, "launches_past");
+}
+
 export const getLaunch = (id) => {
     const payload = { ...defaultLaunchQuery, query: { ...defaultLaunchQuery.query, _id: id } };
     const fn = () => fetch(`${domain}/launches/query`, { ...defaultPostConfiguration, body: JSON.stringify(payload) }).then(r => r.json());
@@ -66,6 +87,13 @@ export const searchLaunchpad = (term) => {
     return wrapFetch(fn, "launchpad_search");
 }
 
+export const searchRockets = (term) => {
+    const regex = { "$regex": term, "$options": "si" };
+    const payload = { "query": { "$or": [ { "name": regex }, { "description": regex } ] } };
+    const fn = () => fetch(`${domain}/rockets/query`, { ...defaultPostConfiguration, body: JSON.stringify(payload) }).then(r => r.json());
+    return wrapFetch(fn, "rocket_search");
+}
+
 export const getCore = (id) => {
     const fn = () => fetch(`${domain}/cores/${id}`).then((r) => r.json());
     return wrapFetch(fn, "core_one");
@@ -85,16 +113,6 @@ export const getLaunchpad = (id) => {
     const fn = () => fetch(`${domain}/launchpads/${id}`).then((r) => r.json());
     return wrapFetch(fn, "launchpad_one");
 };
-
-export const getLaunches = (ids, page=1) => {
-    const payload = { 
-        ...defaultLaunchQuery,
-        query: { ...defaultLaunchQuery.query, "_id": { "$in": ids }},
-        options: { ...defaultLaunchQuery.options, page: page }
-    };
-    const fn = () => fetch(`${domain}/launches/query`, { ...defaultPostConfiguration, body: JSON.stringify(payload) }).then(r => r.json());
-    return wrapFetch(fn, "launches_past");
-}
 
 export const getRockets = (ids) => {
     const payload = { query: { "_id": { "$in": ids }}};

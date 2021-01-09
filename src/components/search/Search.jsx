@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { searchCores, searchLaunches, searchShip, searchCrew, searchLaunchpad } from '../../service/SpaceXApi';
+import { searchCores, searchLaunches, searchShip, searchCrew, searchLaunchpad, searchRockets } from '../../service/SpaceXApi';
 import { AsyncTypeahead } from 'react-bootstrap-typeahead';
 import { Card, Form } from 'react-bootstrap';
 import {
@@ -7,7 +7,8 @@ import {
     SEARCH_LAUNCH,
     SEARCH_SHIP,
     SEARCH_CREW,
-    SEARCH_LAUNCHPAD
+    SEARCH_LAUNCHPAD,
+    SEARCH_ROCKET
 } from '../launches/LaunchConsts';
 import { useHistory } from 'react-router-dom';
 const filterBy = () => true;
@@ -19,14 +20,15 @@ const search = (fn, setIsLoading, setOptions) => {
     }).catch(() => setIsLoading(false))
 }
 
-const SEARCH_CONTEXTS = [SEARCH_LAUNCH, SEARCH_CORES, SEARCH_LAUNCHPAD, SEARCH_CREW, SEARCH_SHIP];
+const SEARCH_CONTEXTS = [SEARCH_LAUNCH, SEARCH_ROCKET, SEARCH_CORES, SEARCH_LAUNCHPAD, SEARCH_CREW, SEARCH_SHIP];
 
 const SEARCH_PLACEHOLDERS = {
     [SEARCH_LAUNCH]: 'Search for a launch e.g. STP-2',
     [SEARCH_CORES]: 'Search for a launch by cores e.g. B1040',
     [SEARCH_LAUNCHPAD]: 'Search for a launch by pad e.g. SLC',
     [SEARCH_SHIP]: 'Search for a launch by ships e.g. JRTI',
-    [SEARCH_CREW]: 'Search for a launch by crew e.g. NASA'
+    [SEARCH_CREW]: 'Search for a launch by crew e.g. NASA',
+    [SEARCH_ROCKET]: 'Search for a launch by rocket e.g. Falcon 9'
 };
 const searchFn = (term, searchContext, setIsLoading, setOptions) => {
     switch (searchContext) {
@@ -45,6 +47,9 @@ const searchFn = (term, searchContext, setIsLoading, setOptions) => {
         case SEARCH_LAUNCHPAD:
             return search(() => searchLaunchpad(term)
                 .then((d) => d.docs.map(r => ({ ...r, type: SEARCH_LAUNCHPAD }))), setIsLoading, setOptions);
+        case SEARCH_ROCKET:
+            return search(() => searchRockets(term)
+                .then((d) => d.docs.map(r => ({ ...r, type: SEARCH_ROCKET }))), setIsLoading, setOptions);
         default:
             console.log('Not implemented ', searchContext)
             return null;
@@ -67,6 +72,9 @@ export const handleTransition = (history, item) => {
             break;
         case SEARCH_LAUNCHPAD:
             history.push(`/x/launchpad/${item.id}/launches`, { launchpad: item })
+            break;
+        case SEARCH_ROCKET:
+            history.push(`/x/rocket/${item.id}/launches`, { rocket: item });
             break;
         default:
             break;

@@ -44,7 +44,6 @@ const getPreviousLandings = (enhancedCore, field) => {
 }
 
 const getPreviousLaunches = (core) => {
-    
     if (core.flight === 1) {
         return `This launch was the first time this core was used`;
     } else if (core.flight > 1) {
