@@ -1,8 +1,8 @@
 import { React, useEffect, useState } from 'react';
 import { MainLayout } from '../layout/MainLayout';
 import { useLocation, useParams } from 'react-router-dom';
-import { LAUNCHES_CORE, LAUNCHES_CREW, LAUNCHES_PAST, LAUNCHES_SHIP, LAUNCHES_UPCOMING } from './LaunchConsts';
-import { getCore, getLaunches, getShip, getUpcomingLaunches, getPastLaunches, getCrew } from '../../service/SpaceXApi';
+import { LAUNCHES_CORE, LAUNCHES_CREW, LAUNCHES_LAUNCHPAD, LAUNCHES_PAST, LAUNCHES_SHIP, LAUNCHES_UPCOMING } from './LaunchConsts';
+import { getCore, getLaunches, getShip, getUpcomingLaunches, getPastLaunches, getCrew, getLaunchpad } from '../../service/SpaceXApi';
 import { LaunchCardRow } from './LaunchCardRow';
 import { Card, Button } from 'react-bootstrap';
 import { Loader } from 'react-bootstrap-typeahead';
@@ -19,6 +19,9 @@ const loadWithPreReq = (id, ctx, setLaunches, launches, page) => {
                 .then((res) => loadLaunchesFromIds(res.launches, setLaunches, launches, page))
         case LAUNCHES_CREW:
             return getCrew(id)
+                .then((res) => loadLaunchesFromIds(res.launches, setLaunches, launches, page))
+        case LAUNCHES_LAUNCHPAD:
+            return getLaunchpad(id)
                 .then((res) => loadLaunchesFromIds(res.launches, setLaunches, launches, page))
         case LAUNCHES_UPCOMING:
             return getUpcomingLaunches(page)
@@ -64,6 +67,8 @@ const getLaunchesContext = (location) => {
         return LAUNCHES_PAST;
     } else if (location.pathname.includes(LAUNCHES_CREW)) {
         return LAUNCHES_CREW;
+    } else if (location.pathname.includes(LAUNCHES_LAUNCHPAD)) {
+        return LAUNCHES_LAUNCHPAD;
     }
 }
 

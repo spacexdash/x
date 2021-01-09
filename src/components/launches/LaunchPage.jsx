@@ -8,7 +8,7 @@ import { useLocation, useParams } from 'react-router-dom';
 import { LaunchContextMenu } from './LaunchContextMenu';
 import {
     LAUNCH_PAGE_CONTEXT_MISSION_GALERY, LAUNCH_PAGE_CONTEXT_CORES,
-    LAUNCH_PAGE_CONTEXT_ROCKET, LAUNCH_PAGE_CONTEXT_SHIPS, LAUNCH_PAGE_CONTEXT_PAYLOAD, LAUNCH_PAGE_CONTEXT_CREW
+    LAUNCH_PAGE_CONTEXT_ROCKET, LAUNCH_PAGE_CONTEXT_SHIPS, LAUNCH_PAGE_CONTEXT_PAYLOAD, LAUNCH_PAGE_CONTEXT_CREW, LAUNCH_PAGE_CONTEXT_LAUNCHPAD
 } from './LaunchConsts';
 import { CoreCard } from '../cores/CoreCard';
 import { RocketCardStack } from '../rocket/RocketCardStack';
@@ -16,6 +16,7 @@ import { ShipCard } from '../ships/ShipCard';
 import { PayloadCard } from '../payload/PayloadCard';
 import { LaunchGallery } from './LaunchGallery';
 import { CrewCard } from '../crew/CrewCard';
+import { LaunchpadCard } from '../launchpad/LaunchpadCard';
 
 const loadPage = ({ fetchedLaunch, setFetchedLaunch, launchId }) => {
     if (fetchedLaunch.loaded) {
@@ -38,6 +39,8 @@ const ContextRocketComponent = ({ launch }) => <RocketCardStack rocket={launch.r
 const ContextShipComponent = ({ launch }) => launch.ships.map((ship) => <ShipCard key={ship.id} ship={ship} />);
 const ContextPayloadComponent = ({ launch }) => launch.payloads.map((payload) => <PayloadCard key={payload.id} payload={payload} />);
 const ContextCrewComponent = ({ launch }) => launch.crew.map((crew) => <CrewCard key={crew.id} crew={crew} />);
+const ContextLaunchpadComponent = ({ launch }) => <LaunchpadCard launchpad={launch.launchpad} />
+
 export const componentForContext = (type, launch) => {
     switch (type) {
         case LAUNCH_PAGE_CONTEXT_MISSION_GALERY:
@@ -52,6 +55,8 @@ export const componentForContext = (type, launch) => {
             return <ContextPayloadComponent launch={launch} />
         case LAUNCH_PAGE_CONTEXT_CREW:
             return <ContextCrewComponent launch={launch} />
+        case LAUNCH_PAGE_CONTEXT_LAUNCHPAD:
+            return <ContextLaunchpadComponent launch={launch} />
         default:
             return <span>This context item is not implemented</span>
     }
@@ -65,7 +70,7 @@ export const LaunchPage = () => {
         error: null,
         data: {}
     });
-    const [activeContext, setActiveContext] = useState(LAUNCH_PAGE_CONTEXT_MISSION_GALERY)
+    const [activeContext, setActiveContext] = useState(LAUNCH_PAGE_CONTEXT_ROCKET)
     const launch = (existsInLocationState(location)) ? location.state.launch : fetchedLaunch.data;
     const shouldRender = (fetchedLaunch.loaded && !fetchedLaunch.error);
     useEffect(() => loadPage({ fetchedLaunch, setFetchedLaunch, launchId }));

@@ -59,6 +59,13 @@ export const searchCrew = (term) => {
     return wrapFetch(fn, "crew_search");
 }
 
+export const searchLaunchpad = (term) => {
+    const regex = { "$regex": term, "$options": "si" };
+    const payload = { "query": { "$or": [ { "name": regex }, { "full_name": regex } ] } };
+    const fn = () => fetch(`${domain}/launchpads/query`, { ...defaultPostConfiguration, body: JSON.stringify(payload) }).then(r => r.json());
+    return wrapFetch(fn, "launchpad_search");
+}
+
 export const getCore = (id) => {
     const fn = () => fetch(`${domain}/cores/${id}`).then((r) => r.json());
     return wrapFetch(fn, "core_one");
@@ -74,6 +81,11 @@ export const getCrew = (id) => {
     return wrapFetch(fn, "crew_one");
 };
 
+export const getLaunchpad = (id) => {
+    const fn = () => fetch(`${domain}/launchpads/${id}`).then((r) => r.json());
+    return wrapFetch(fn, "launchpad_one");
+};
+
 export const getLaunches = (ids, page=1) => {
     const payload = { 
         ...defaultLaunchQuery,
@@ -83,4 +95,11 @@ export const getLaunches = (ids, page=1) => {
     const fn = () => fetch(`${domain}/launches/query`, { ...defaultPostConfiguration, body: JSON.stringify(payload) }).then(r => r.json());
     return wrapFetch(fn, "launches_past");
 }
+
+export const getRockets = (ids) => {
+    const payload = { query: { "_id": { "$in": ids }}};
+    const fn = () => fetch(`${domain}/rockets/query`, { ...defaultPostConfiguration, body: JSON.stringify(payload) }).then(r => r.json());
+    return wrapFetch(fn, "rocket_search");
+}
+
 export const wrapFetch = (fn, identifier) => runApi(fn, "spaceXApi", identifier);

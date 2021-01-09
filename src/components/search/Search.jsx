@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
-import { searchCores, searchLaunches, searchShip, searchCrew } from '../../service/SpaceXApi';
+import { searchCores, searchLaunches, searchShip, searchCrew, searchLaunchpad } from '../../service/SpaceXApi';
 import { AsyncTypeahead } from 'react-bootstrap-typeahead';
 import { Card, Form } from 'react-bootstrap';
 import {
     SEARCH_CORES,
     SEARCH_LAUNCH,
     SEARCH_SHIP,
-    SEARCH_CREW
+    SEARCH_CREW,
+    SEARCH_LAUNCHPAD
 } from '../launches/LaunchConsts';
 import { useHistory } from 'react-router-dom';
 const filterBy = () => true;
@@ -18,28 +19,32 @@ const search = (fn, setIsLoading, setOptions) => {
     }).catch(() => setIsLoading(false))
 }
 
-const SEARCH_CONTEXTS = [ SEARCH_LAUNCH, SEARCH_CORES, SEARCH_CREW, SEARCH_SHIP ];
+const SEARCH_CONTEXTS = [SEARCH_LAUNCH, SEARCH_CORES, SEARCH_LAUNCHPAD, SEARCH_CREW, SEARCH_SHIP];
 
 const SEARCH_PLACEHOLDERS = {
     [SEARCH_LAUNCH]: 'Search for a launch e.g. STP-2',
-    [SEARCH_CORES]: 'Search for launch by cores e.g. B1040',
-    [SEARCH_SHIP]: 'Search for launch by ships e.g. JRTI',
-    [SEARCH_CREW]: 'Search for launch by crew e.g. NASA'
+    [SEARCH_CORES]: 'Search for a launch by cores e.g. B1040',
+    [SEARCH_LAUNCHPAD]: 'Search for a launch by pad e.g. SLC',
+    [SEARCH_SHIP]: 'Search for a launch by ships e.g. JRTI',
+    [SEARCH_CREW]: 'Search for a launch by crew e.g. NASA'
 };
 const searchFn = (term, searchContext, setIsLoading, setOptions) => {
-    switch(searchContext) {
+    switch (searchContext) {
         case SEARCH_LAUNCH:
             return search(() => searchLaunches(term)
-                .then((d) => d.docs.map(r => ({ ...r, type: SEARCH_LAUNCH}))),  setIsLoading, setOptions);
+                .then((d) => d.docs.map(r => ({ ...r, type: SEARCH_LAUNCH }))), setIsLoading, setOptions);
         case SEARCH_CORES:
             return search(() => searchCores(term)
-                .then((d => d.docs.map(r => ({ ...r, name: r.serial, type: SEARCH_CORES})))), setIsLoading, setOptions);
+                .then((d => d.docs.map(r => ({ ...r, name: r.serial, type: SEARCH_CORES })))), setIsLoading, setOptions);
         case SEARCH_CREW:
             return search(() => searchCrew(term)
-                .then((d => d.docs.map(r => ({ ...r, type: SEARCH_CREW})))), setIsLoading, setOptions);
+                .then((d => d.docs.map(r => ({ ...r, type: SEARCH_CREW })))), setIsLoading, setOptions);
         case SEARCH_SHIP:
             return search(() => searchShip(term)
                 .then((d) => d.docs.map(r => ({ ...r, type: SEARCH_SHIP }))), setIsLoading, setOptions);
+        case SEARCH_LAUNCHPAD:
+            return search(() => searchLaunchpad(term)
+                .then((d) => d.docs.map(r => ({ ...r, type: SEARCH_LAUNCHPAD }))), setIsLoading, setOptions);
         default:
             console.log('Not implemented ', searchContext)
             return null;
@@ -47,7 +52,7 @@ const searchFn = (term, searchContext, setIsLoading, setOptions) => {
 }
 
 export const handleTransition = (history, item) => {
-    switch(item.type) {
+    switch (item.type) {
         case SEARCH_LAUNCH:
             history.push(`/x/launch/${item.id}`, { launch: item });
             break;
@@ -59,6 +64,9 @@ export const handleTransition = (history, item) => {
             break;
         case SEARCH_SHIP:
             history.push(`/x/ship/${item.id}/launches`, { ship: item })
+            break;
+        case SEARCH_LAUNCHPAD:
+            history.push(`/x/launchpad/${item.id}/launches`, { launchpad: item })
             break;
         default:
             break;
@@ -92,7 +100,7 @@ export const Search = () => {
             />
             <div className='row pt-3'>
                 <div className='col'>
-                Search By: {SEARCH_CONTEXTS.map((ctx) => <Form.Check inline
+                    Search By: {SEARCH_CONTEXTS.map((ctx) => <Form.Check inline
                     label={ctx}
                     value={ctx}
                     key={ctx}
