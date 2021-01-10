@@ -9,6 +9,7 @@ export const LAUNCH_PAGE_CONTEXT_CORES = "Cores";
 export const LAUNCH_PAGE_CONTEXT_LAUNCHPAD = "Launchpad";
 export const LAUNCH_PAGE_CONTEXT_LANDINGZONE = "Landingzone";
 export const LAUNCH_PAGE_CONTEXT_SHIPS = "Ships";
+export const LAUNCH_PAGE_CONTEXT_TELEMETRY = "Telemetry";
 
 export const SEARCH_LAUNCH = "Launches";
 export const SEARCH_CORES = "Cores";

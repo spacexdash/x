@@ -1,3 +1,5 @@
+import numeral from 'numeral';
+
 export const titlecase = (str) => str.replace(/\w\S*/g, (txt) => txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase());
 
 export const ordinalSuffix = (i) => {
@@ -14,3 +16,5 @@ export const ordinalSuffix = (i) => {
     }
     return i + "th";
 }
+
+export const abbrev = (i) => numeral(i).format('0.0a');

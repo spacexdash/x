@@ -8,7 +8,7 @@ import { useLocation, useParams } from 'react-router-dom';
 import { LaunchContextMenu } from './LaunchContextMenu';
 import {
     LAUNCH_PAGE_CONTEXT_MISSION_GALERY, LAUNCH_PAGE_CONTEXT_CORES,
-    LAUNCH_PAGE_CONTEXT_ROCKET, LAUNCH_PAGE_CONTEXT_SHIPS, LAUNCH_PAGE_CONTEXT_PAYLOAD, LAUNCH_PAGE_CONTEXT_CREW, LAUNCH_PAGE_CONTEXT_LAUNCHPAD
+    LAUNCH_PAGE_CONTEXT_ROCKET, LAUNCH_PAGE_CONTEXT_SHIPS, LAUNCH_PAGE_CONTEXT_PAYLOAD, LAUNCH_PAGE_CONTEXT_CREW, LAUNCH_PAGE_CONTEXT_LAUNCHPAD, LAUNCH_PAGE_CONTEXT_TELEMETRY
 } from './LaunchConsts';
 import { CoreCard } from '../cores/CoreCard';
 import { RocketCardStack } from '../rocket/RocketCardStack';
@@ -17,6 +17,7 @@ import { PayloadCard } from '../payload/PayloadCard';
 import { LaunchGallery } from './LaunchGallery';
 import { CrewCard } from '../crew/CrewCard';
 import { LaunchpadCard } from '../launchpad/LaunchpadCard';
+import { TelemetryCardStack } from '../telemetry/TelemetryCardStack';
 
 const loadPage = ({ fetchedLaunch, setFetchedLaunch, launchId }) => {
     if (fetchedLaunch.loaded) {
@@ -40,6 +41,7 @@ const ContextShipComponent = ({ launch }) => launch.ships.map((ship) => <ShipCar
 const ContextPayloadComponent = ({ launch }) => launch.payloads.map((payload) => <PayloadCard key={payload.id} payload={payload} />);
 const ContextCrewComponent = ({ launch }) => launch.crew.map((crew) => <CrewCard key={crew.id} crew={crew} />);
 const ContextLaunchpadComponent = ({ launch }) => <LaunchpadCard launchpad={launch.launchpad} />
+const ContextTelemetry = ({ launch }) => <TelemetryCardStack id={launch.flight_number} />
 
 export const componentForContext = (type, launch) => {
     switch (type) {
@@ -57,6 +59,8 @@ export const componentForContext = (type, launch) => {
             return <ContextCrewComponent launch={launch} />
         case LAUNCH_PAGE_CONTEXT_LAUNCHPAD:
             return <ContextLaunchpadComponent launch={launch} />
+        case LAUNCH_PAGE_CONTEXT_TELEMETRY:
+            return <ContextTelemetry launch={launch} />
         default:
             return <span>This context item is not implemented</span>
     }
