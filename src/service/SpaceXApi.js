@@ -44,8 +44,7 @@ export const getLaunches = (ids, page=1) => {
         options: { ...defaultLaunchQuery.options, page: page }
     };
     const fn = () => fetch(`${domain}/launches/query`, { ...defaultPostConfiguration, body: JSON.stringify(payload) }).then(r => r.json());
-    return fn();
-    // return wrapFetch(fn, "launches_past");
+    return wrapFetch(fn, "launches_past");
 }
 
 export const getLaunch = (id) => {
@@ -55,7 +54,13 @@ export const getLaunch = (id) => {
 }
 
 export const searchLaunches = (term) => {
-    const payload = { ...defaultLaunchQuery, query: { ...defaultLaunchQuery.query, "$text": { "$search": term }}};
+    const regex = { "$regex": term, "$options": "si" };
+    const payload = { 
+        ...defaultLaunchQuery,
+        query: { 
+            ...defaultLaunchQuery.query,
+            "$or": [ { "name": regex }, { "details": regex } ] },
+    }
     const fn = () => fetch(`${domain}/launches/query`, { ...defaultPostConfiguration, body: JSON.stringify(payload) }).then(r => r.json());
     return wrapFetch(fn, "launches_search");
 };
