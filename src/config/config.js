@@ -6,7 +6,7 @@ const config = {
         spaceXApi: "https://api.spacexdata.com"
     },
     mocks: {
-        spaceXApi: true,
+        spaceXApi: false,
     }
 }
 export default config;

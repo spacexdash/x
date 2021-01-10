@@ -108,7 +108,10 @@ export const Search = () => {
             />
             <div className='row pt-3'>
                 <div className='col'>
-                    Search By: {SEARCH_CONTEXTS.map((ctx) => <Form.Check inline
+                    <label>
+                        Search By:&nbsp;
+                    </label>
+                    {SEARCH_CONTEXTS.map((ctx) => <Form.Check inline
                     label={ctx}
                     value={ctx}
                     key={ctx}

@@ -94,6 +94,7 @@ export const Launches = () => {
                         setLaunches({ ...launches, hasLoaded: false });
                     }}>More</Button>}
                     {launches.isLoading && <Loader />}
+                    {!launches.isLoading && launches.hasLoaded && launches.data.docs.length === 0 && <span>Uh oh it looks like we can't find any launches for this {launchCtx} 🤔</span>}
                 </div>
             </Card.Body>
         </Card>
