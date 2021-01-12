@@ -25,7 +25,7 @@ const SEARCH_CONTEXTS = [SEARCH_LAUNCH, SEARCH_ROCKET, SEARCH_CORES, SEARCH_LAUN
 const SEARCH_PLACEHOLDERS = {
     [SEARCH_LAUNCH]: 'Search for a launch e.g. STP-2',
     [SEARCH_CORES]: 'Search for a launch by cores e.g. B1040',
-    [SEARCH_LAUNCHPAD]: 'Search for a launch by pad e.g. SLC',
+    [SEARCH_LAUNCHPAD]: 'Search for a launch by pad e.g. CCSFS',
     [SEARCH_SHIP]: 'Search for a launch by ships e.g. JRTI',
     [SEARCH_CREW]: 'Search for a launch by crew e.g. NASA',
     [SEARCH_ROCKET]: 'Search for a launch by rocket e.g. Falcon 9'
