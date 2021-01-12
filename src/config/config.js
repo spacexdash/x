@@ -5,7 +5,7 @@ const config = {
     },
     api: {
         spaceXApi: "https://api.spacexdata.com",
-        telemetryApi: "http://api.launchdashboard.space"
+        telemetryApi: "https://api.launchdashboard.space"
     },
     mocks: {
         spaceXApi: false,
