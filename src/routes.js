@@ -18,6 +18,7 @@ const routes = (
         <Route exact path="/x/launchpad/:id/launches" component={Launches} />
         <Route exact path="/x/launches/upcoming" component={Launches} />
         <Route exact path="/x/launches/past" component={Launches} />
+        <Route exact path="/x/launches/all" component={Launches} />
     </Switch>
 )
 

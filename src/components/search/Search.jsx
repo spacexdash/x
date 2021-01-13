@@ -11,6 +11,7 @@ import {
     SEARCH_ROCKET
 } from '../launches/LaunchConsts';
 import { useHistory } from 'react-router-dom';
+import { ViewAll } from '../home/ViewAll';
 const filterBy = () => true;
 
 const search = (fn, setIsLoading, setOptions) => {
@@ -88,7 +89,7 @@ export const Search = () => {
     const history = useHistory();
 
     return <Card>
-        <Card.Body>
+        <Card.Body className='pb-1 mb-0'>
             <AsyncTypeahead
                 id='search'
                 filterBy={filterBy}
@@ -107,10 +108,10 @@ export const Search = () => {
                 }}
             />
             <div className='row pt-3'>
-                <div className='col'>
-                    <label>
-                        Search By:&nbsp;
-                    </label>
+                <label className='pl-3 mr-0 pl-0'>
+                    Search:&nbsp;
+                </label>
+                <div className='col-8 ml-0 pl-0'>
                     {SEARCH_CONTEXTS.map((ctx) => <Form.Check inline
                     label={ctx}
                     value={ctx}
@@ -118,6 +119,9 @@ export const Search = () => {
                     type='radio'
                     onChange={(e) => setSearchContext(e.target.value)}
                     checked={searchContext === ctx} />)}
+                </div>
+                <div className='col text-sm-left text-md-right'>
+                    <ViewAll context={searchContext} />
                 </div>
             </div>
         </Card.Body>

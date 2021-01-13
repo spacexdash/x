@@ -22,6 +22,7 @@ export const LAUNCHES_CORE = "core"
 export const LAUNCHES_SHIP = "ship"
 export const LAUNCHES_UPCOMING = "upcoming";
 export const LAUNCHES_PAST = "past";
+export const LAUNCHES_ALL = "all";
 export const LAUNCHES_CREW = "crew";
 export const LAUNCHES_LAUNCHPAD = "launchpad";
 export const LAUNCHES_ROCKET = "rocket";

@@ -1,8 +1,8 @@
 import { React, useEffect, useState } from 'react';
 import { MainLayout } from '../layout/MainLayout';
 import { useLocation, useParams } from 'react-router-dom';
-import { LAUNCHES_CORE, LAUNCHES_CREW, LAUNCHES_LAUNCHPAD, LAUNCHES_PAST, LAUNCHES_SHIP, LAUNCHES_UPCOMING, LAUNCHES_ROCKET } from './LaunchConsts';
-import { getCore, getLaunches, getShip, getUpcomingLaunches, getPastLaunches, getCrew, getLaunchpad, getLaunchesByRocket } from '../../service/SpaceXApi';
+import { LAUNCHES_CORE, LAUNCHES_CREW, LAUNCHES_LAUNCHPAD, LAUNCHES_PAST, LAUNCHES_SHIP, LAUNCHES_UPCOMING, LAUNCHES_ROCKET, LAUNCHES_ALL } from './LaunchConsts';
+import { getCore, getLaunches, getShip, getUpcomingLaunches, getPastLaunches, getCrew, getLaunchpad, getLaunchesByRocket, getAllLaunches } from '../../service/SpaceXApi';
 import { LaunchCardRow } from './LaunchCardRow';
 import { Card, Button } from 'react-bootstrap';
 import { Loader } from 'react-bootstrap-typeahead';
@@ -32,6 +32,9 @@ const loadWithPreReq = (id, ctx, setLaunches, launches, page) => {
         case LAUNCHES_PAST:
             return getPastLaunches(page)
                 .then((d) => setLaunches({ isLoading: false, hasLoaded: true, data: { ...launches.data, ...d, docs: [...launches.data.docs, ...d.docs] } }));
+        case LAUNCHES_ALL:
+                return getAllLaunches(page)
+                    .then((d) => setLaunches({ isLoading: false, hasLoaded: true, data: { ...launches.data, ...d, docs: [...launches.data.docs, ...d.docs] } }));
         default:
             break;
     }
@@ -68,6 +71,8 @@ const getLaunchesContext = (location) => {
         return LAUNCHES_UPCOMING;
     } else if (location.pathname.includes(LAUNCHES_PAST)) {
         return LAUNCHES_PAST;
+    } else if (location.pathname.includes(LAUNCHES_ALL)) {
+        return LAUNCHES_ALL;
     } else if (location.pathname.includes(LAUNCHES_CREW)) {
         return LAUNCHES_CREW;
     } else if (location.pathname.includes(LAUNCHES_LAUNCHPAD)) {

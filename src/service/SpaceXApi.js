@@ -27,6 +27,16 @@ export const getUpcomingLaunches = (page = 1, limit = defaultLaunchQuery.options
     return wrapFetch(fn, "launches_upcoming");
 }
 
+export const getAllLaunches = (page = 1, limit = defaultLaunchQuery.options.limit) => {
+    const payload = { 
+        ...defaultLaunchQuery, 
+        query: { ...defaultLaunchQuery.query },
+        options: { ...defaultLaunchQuery.options, limit: limit, page: page }
+    };
+    const fn = () => fetch(`${domain}/launches/query`, { ...defaultPostConfiguration, body: JSON.stringify(payload) }).then(r => r.json());
+    return wrapFetch(fn, "launches_past");
+};
+
 export const getLaunchesByRocket = (id, page = 1, limit = defaultLaunchQuery.options.limit) => {
     const payload = { 
         ...defaultLaunchQuery, 
