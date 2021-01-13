@@ -13,8 +13,9 @@ export const Disclaimer = () => {
                 If you think there's inaccurate non-telemetry data or if you have information for an upcoming launch you can raise an issue&nbsp;
                 <a href="https://github.com/r-spacex/SpaceX-API/issues" target="_new">here</a>. Launch telemetry is provided by&nbsp;
                 <a href="https://github.com/shahar603/Launch-Dashboard-API">Launch-Dashboard-API</a> on a best effort basis. 
-                If you have launch telemetry you want to share you can raise an issue here 
-                <a href="https://github.com/shahar603/Launch-Dashboard-API/issues">here</a>.
+                If you have launch telemetry you want to share you can raise an issue&nbsp;
+                <a href="https://github.com/shahar603/Launch-Dashboard-API/issues">here</a>. News is provided by&nbsp;
+                <a href="https://spaceflightnewsapi.net">snapi</a>.
                 For bugs and feature requests you can submit an issue <a href="https://github.com/spacexdash/x/issues" target="_new">here</a>.
             </small>
         </p>

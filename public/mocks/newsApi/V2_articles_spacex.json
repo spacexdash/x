@@ -1,0 +1,92 @@
+[
+    {
+        "id": "5fff5e8c70fbb1001cbfe160",
+        "title": "SpaceX Starship static fires Raptor engines twice in one day for the first time",
+        "url": "https://www.teslarati.com/spacex-starship-two-static-fires-one-day/",
+        "imageUrl": "https://www.teslarati.com/wp-content/uploads/2021/01/Starship-Boca-Chica-011321-NASASpaceflight-bocachicagal-SN9-static-fire-attempt-2-3-1.jpg",
+        "newsSite": "Teslarati",
+        "summary": "Around 12:30 pm CST (UTC-6), SpaceX Starship prototype serial number 9 (SN9) ignited its Raptor engines for the second time, followed by...",
+        "publishedAt": "2021-01-13T20:56:34.000Z",
+        "updatedAt": "2021-01-13T20:56:44.326Z",
+        "featured": false,
+        "launches": [],
+        "events": []
+    },
+    {
+        "id": "5ffe1c2a2d26e7001c2988e5",
+        "title": "SpaceX wins FCC approval to launch first polar Starlink satellites amidst rideshare chaos",
+        "url": "https://www.teslarati.com/spacex-starlink-polar-satellites-fcc-approval/",
+        "imageUrl": "https://www.teslarati.com/wp-content/uploads/2020/06/Starlink-V1-L8-Falcon-9-B1059-LC40-061220-Richard-Angle-prelaunch-4-c.jpg",
+        "newsSite": "Teslarati",
+        "summary": "In a sign of the regulatory agency’s growing confidence in SpaceX, the FCC has rapidly approved a request to add ten Starlink...",
+        "publishedAt": "2021-01-12T22:01:04.000Z",
+        "updatedAt": "2021-01-12T22:01:14.615Z",
+        "featured": false,
+        "launches": [
+            {
+                "id": "f213a5df-579a-4682-8143-df228e463049",
+                "provider": "Launch Library 2"
+            }
+        ],
+        "events": []
+    },
+    {
+        "id": "5ffdb04c2d26e7001c2988d8",
+        "title": "Russia may fine citizens who use SpaceX’s Starlink Internet service",
+        "url": "https://arstechnica.com/science/2021/01/russia-may-fine-citizens-who-use-spacexs-starlink-internet-service/",
+        "imageUrl": "https://cdn.arstechnica.net/wp-content/uploads/2021/01/50242057682_968d536010_k.jpg",
+        "newsSite": "Arstechnica",
+        "summary": "Russia is planning its own Internet from space plan, called Sphere.",
+        "publishedAt": "2021-01-12T14:11:30.000Z",
+        "updatedAt": "2021-01-12T14:21:00.151Z",
+        "featured": false,
+        "launches": [],
+        "events": []
+    },
+    {
+        "id": "5ffee26d70fbb1001cbfe153",
+        "title": "SpaceX aborts third Starship static fire attempt minutes before ignition",
+        "url": "https://www.teslarati.com/spacex-aborts-third-starship-sn9-static-fire-attempt/",
+        "imageUrl": "https://www.teslarati.com/wp-content/uploads/2021/01/Starship-Boca-Chica-011221-NASASpaceflight-bocachicagal-SN9-static-fire-attempt-3-1-c.jpg",
+        "newsSite": "Teslarati",
+        "summary": "Perhaps just two or so minutes away from ignition, SpaceX Starship prototype SN9 aborted its third triple-Raptor static fire attempt late into...",
+        "publishedAt": "2021-01-12T12:07:00.000Z",
+        "updatedAt": "2021-01-13T12:07:09.594Z",
+        "featured": false,
+        "launches": [
+            {
+                "id": "44670393-85da-4504-99f3-e5b95d71cbb6",
+                "provider": "Launch Library 2"
+            }
+        ],
+        "events": [
+            {
+                "id": "216",
+                "provider": "Launch Library 2"
+            }
+        ]
+    },
+    {
+        "id": "5ffd75d62d26e7001c2988d4",
+        "title": "SpaceX’s next Starship launch still waiting on a successful Raptor test",
+        "url": "https://www.teslarati.com/spacex-next-starship-launch-pending-raptor-test/",
+        "imageUrl": "https://www.teslarati.com/wp-content/uploads/2021/01/Starship-Boca-Chica-010321-NASASpaceflight-bocachicagal-SN9-sunrise-3-crop-1-c.webp",
+        "newsSite": "Teslarati",
+        "summary": "Several days after the last test attempt, SpaceX’s next Starship launch remains delayed pending a successful static fire of the prototype’s three...",
+        "publishedAt": "2021-01-12T10:11:23.000Z",
+        "updatedAt": "2021-01-12T10:11:35.066Z",
+        "featured": false,
+        "launches": [
+            {
+                "id": "44670393-85da-4504-99f3-e5b95d71cbb6",
+                "provider": "Launch Library 2"
+            }
+        ],
+        "events": [
+            {
+                "id": "216",
+                "provider": "Launch Library 2"
+            }
+        ]
+    }
+]
