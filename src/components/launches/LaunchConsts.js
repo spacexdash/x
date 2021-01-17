@@ -16,7 +16,7 @@ export const SEARCH_CORES = "Cores";
 export const SEARCH_SHIP = "Ships";
 export const SEARCH_CREW = "Crew";
 export const SEARCH_LAUNCHPAD = "Launchpads";
-export const SEARCH_ROCKET = "Rocket";
+export const SEARCH_ROCKET = "Rockets";
 
 export const LAUNCHES_CORE = "core"
 export const LAUNCHES_SHIP = "ship"

@@ -13,7 +13,7 @@ export const LaunchCardRow = (props) => {
     const { id, name, date_utc, date_precision, success, payloads } = props.launch;
     const customers = payloads.map(p => p.customers.join(', ')).flat();
     const { push } = useHistory();
-    return <li className={`list-group-item launch-card-row`} onClick={(e) => handlePush(e, push, id, props.launch)} >
+    return <li className={`list-group-item search-result`} onClick={(e) => handlePush(e, push, id, props.launch)} >
         <div className='row'>
             <h6 className='col'>
                 {name}

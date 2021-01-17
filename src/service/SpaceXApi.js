@@ -135,4 +135,8 @@ export const getRockets = (ids) => {
     return wrapFetch(fn, "rocket_search");
 }
 
+export const getAllRockets = () => {
+    const fn = () => fetch(`${domain}/rockets`).then((r) => r.json());
+    return wrapFetch(fn, "rocket_all");
+};
 export const wrapFetch = (fn, identifier) => runApi(fn, "spaceXApi", identifier);

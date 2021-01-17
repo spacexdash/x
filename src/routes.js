@@ -3,6 +3,7 @@ import {Route, Switch} from 'react-router-dom';
 import {HomePage} from './components/home/HomePage'
 import { Launches } from "./components/launches/Launches";
 import {LaunchPage} from './components/launches/LaunchPage';
+import { Rockets } from "./components/rocket/Rockets";
 
 // Currently have to stick /x/ in front of everything for GH pages.
 const routes = (
@@ -19,6 +20,7 @@ const routes = (
         <Route exact path="/x/launches/upcoming" component={Launches} />
         <Route exact path="/x/launches/past" component={Launches} />
         <Route exact path="/x/launches/all" component={Launches} />
+        <Route exact path="/x/rockets/all" component={Rockets} />
     </Switch>
 )
 

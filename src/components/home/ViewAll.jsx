@@ -17,12 +17,16 @@ const supported = {
     [SEARCH_SHIP]: false,
     [SEARCH_CREW]: false,
     [SEARCH_LAUNCHPAD]: false,
-    [SEARCH_ROCKET]: false,
+    [SEARCH_ROCKET]: true,
 }
 const handleClick = (history, context) => {
     switch(context) {
         case SEARCH_LAUNCH:
             history.push(`/x/launches/all`);
+            break;
+        case SEARCH_ROCKET:
+            history.push(`/x/rockets/all`);
+            break;
         default:
             break;
     }
