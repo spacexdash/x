@@ -12,7 +12,7 @@ import {
 } from '../launches/LaunchConsts';
 
 const supported = {
-    [SEARCH_CORES]: false,
+    [SEARCH_CORES]: true,
     [SEARCH_LAUNCH]: true,
     [SEARCH_SHIP]: false,
     [SEARCH_CREW]: false,
@@ -26,6 +26,9 @@ const handleClick = (history, context) => {
             break;
         case SEARCH_ROCKET:
             history.push(`/x/rockets/all`);
+            break;
+        case SEARCH_CORES:
+            history.push(`/x/cores/all`);
             break;
         default:
             break;

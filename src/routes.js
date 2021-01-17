@@ -1,5 +1,6 @@
 import React from "react";
 import {Route, Switch} from 'react-router-dom';
+import { Cores } from "./components/cores/Cores";
 import {HomePage} from './components/home/HomePage'
 import { Launches } from "./components/launches/Launches";
 import {LaunchPage} from './components/launches/LaunchPage';
@@ -21,6 +22,7 @@ const routes = (
         <Route exact path="/x/launches/past" component={Launches} />
         <Route exact path="/x/launches/all" component={Launches} />
         <Route exact path="/x/rockets/all" component={Rockets} />
+        <Route exact path="/x/cores/all" component={Cores} />
     </Switch>
 )
 

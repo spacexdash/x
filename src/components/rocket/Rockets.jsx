@@ -18,8 +18,9 @@ export const Rockets = () => {
     useEffect(() => load(rockets, setRockets));
 
     return <MainLayout>
-        <Card title="Rockets">
+        <Card>
             <Card.Body>
+                <Card.Title>Rockets</Card.Title>
                 <ul className="list-group">
                     {rockets.data.map((rocket) => <RocketSearchResult key={rocket.id} rocket={rocket} /> )}
                 </ul>

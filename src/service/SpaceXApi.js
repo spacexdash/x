@@ -139,4 +139,10 @@ export const getAllRockets = () => {
     const fn = () => fetch(`${domain}/rockets`).then((r) => r.json());
     return wrapFetch(fn, "rocket_all");
 };
+
+export const getAllCores = () => {
+    const payload = { options: { sort: { reuse_count: "desc", block: "desc" }, limit: 500 }}
+    const fn = () => fetch(`${domain}/cores/query`, { ...defaultPostConfiguration, body: JSON.stringify(payload)  }).then((r) => r.json());
+    return wrapFetch(fn, "core_search");
+}
 export const wrapFetch = (fn, identifier) => runApi(fn, "spaceXApi", identifier);
