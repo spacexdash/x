@@ -145,4 +145,10 @@ export const getAllCores = () => {
     const fn = () => fetch(`${domain}/cores/query`, { ...defaultPostConfiguration, body: JSON.stringify(payload)  }).then((r) => r.json());
     return wrapFetch(fn, "core_search");
 }
+
+export const getAllLaunchpads = () => {
+    const fn = () => fetch(`${domain}/launchpads`).then((r) => r.json());
+    return wrapFetch(fn, "launchpad_all");
+};
+
 export const wrapFetch = (fn, identifier) => runApi(fn, "spaceXApi", identifier);

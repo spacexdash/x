@@ -18,7 +18,7 @@ export const Rockets = () => {
     useEffect(() => load(rockets, setRockets));
 
     return <MainLayout>
-        <Card>
+        <Card className='mt-3'>
             <Card.Body>
                 <Card.Title>Rockets</Card.Title>
                 <ul className="list-group">

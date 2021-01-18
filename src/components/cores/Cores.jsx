@@ -17,7 +17,7 @@ export const Cores = () => {
     useEffect(() => load(cores, setCores));
 
     return <MainLayout>
-        <Card>
+        <Card className='mt-3'>
             <Card.Body>
                 <Card.Title>Cores</Card.Title>
                 <ul className="list-group">
