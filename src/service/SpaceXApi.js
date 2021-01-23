@@ -157,4 +157,11 @@ export const getAllCrew = () => {
     return wrapFetch(fn, "crew_all");
 };
 
+export const getAllShips = () => {
+    const payload = { options: { limit: 500 }};
+    const fn = () => fetch(`${domain}/ships/query`, { ...defaultPostConfiguration, body: JSON.stringify(payload)  }).then((r) => r.json());
+    return wrapFetch(fn, "ship_all");
+};
+
+
 export const wrapFetch = (fn, identifier) => runApi(fn, "spaceXApi", identifier);

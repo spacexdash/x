@@ -10,9 +10,9 @@ const config = {
         newsApi: "https://spaceflightnewsapi.net"
     },
     mocks: {
-        spaceXApi: true,
-        telemetryApi: true,
-        newsApi: true,
+        spaceXApi: false,
+        telemetryApi: false,
+        newsApi: false,
     }
 }
 export default config;

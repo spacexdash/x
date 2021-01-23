@@ -11,14 +11,6 @@ import {
     SEARCH_ROCKET
 } from '../launches/LaunchConsts';
 
-const supported = {
-    [SEARCH_CORES]: true,
-    [SEARCH_LAUNCH]: true,
-    [SEARCH_SHIP]: false,
-    [SEARCH_CREW]: true,
-    [SEARCH_LAUNCHPAD]: true,
-    [SEARCH_ROCKET]: true,
-}
 const handleClick = (history, context) => {
     switch(context) {
         case SEARCH_LAUNCH:
@@ -36,6 +28,9 @@ const handleClick = (history, context) => {
         case SEARCH_CREW:
             history.push(`/x/crew/all`);
             break;
+        case SEARCH_SHIP:
+            history.push(`/x/ships/all`);
+            break;
         default:
             break;
     }
@@ -44,8 +39,8 @@ export const ViewAll = (props) => {
     const history = useHistory();
 
     return <React.Fragment>
-        {supported[props.context] && <Button variant='link' onClick={() => handleClick(history, props.context)}>
+        <Button variant='link' onClick={() => handleClick(history, props.context)}>
             View All {props.context}
-        </Button>}
+        </Button>
     </React.Fragment>
 }
