@@ -151,4 +151,10 @@ export const getAllLaunchpads = () => {
     return wrapFetch(fn, "launchpad_all");
 };
 
+export const getAllCrew = () => {
+    const payload = { options: { limit: 500 }};
+    const fn = () => fetch(`${domain}/crew/query`, { ...defaultPostConfiguration, body: JSON.stringify(payload)  }).then((r) => r.json());
+    return wrapFetch(fn, "crew_all");
+};
+
 export const wrapFetch = (fn, identifier) => runApi(fn, "spaceXApi", identifier);

@@ -6,6 +6,7 @@ import { Launches } from "./components/launches/Launches";
 import {LaunchPage} from './components/launches/LaunchPage';
 import { Rockets } from "./components/rocket/Rockets";
 import {Launchpads} from './components/launchpad/Launchpads';
+import { Crew } from "./components/crew/Crew";
     
 // Currently have to stick /x/ in front of everything for GH pages.
 const routes = (
@@ -25,6 +26,7 @@ const routes = (
         <Route exact path="/x/rockets/all" component={Rockets} />
         <Route exact path="/x/cores/all" component={Cores} />
         <Route exact path="/x/launchpad/all" component={Launchpads} />
+        <Route exact path="/x/crew/all" component={Crew} />
     </Switch>
 )
 

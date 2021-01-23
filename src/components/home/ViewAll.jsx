@@ -15,7 +15,7 @@ const supported = {
     [SEARCH_CORES]: true,
     [SEARCH_LAUNCH]: true,
     [SEARCH_SHIP]: false,
-    [SEARCH_CREW]: false,
+    [SEARCH_CREW]: true,
     [SEARCH_LAUNCHPAD]: true,
     [SEARCH_ROCKET]: true,
 }
@@ -32,6 +32,9 @@ const handleClick = (history, context) => {
             break;
         case SEARCH_LAUNCHPAD:
             history.push(`/x/launchpad/all`);
+            break;
+        case SEARCH_CREW:
+            history.push(`/x/crew/all`);
             break;
         default:
             break;
