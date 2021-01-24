@@ -25,18 +25,18 @@ const MoreLaunches = ({ enhancedCore, serial }) => {
 
 const getPreviousLandings = (enhancedCore, field) => {
     const times = (enhancedCore.data[field] === 1) ? `once` : `${enhancedCore.data[field]} times`;
-    const prefix = `This first stage core has`;
+    const prefix = ` This first stage core has`;
     if (field === 'asds_landings') {
-        const suffix = `on the automomous spaceport droneship`;
+        const suffix = `on the automomous spaceport droneship.`;
         if (enhancedCore.data[field] === 0) {
-            return `This first stage has never landed on the ${suffix}`;
+            return ` This first stage has never landed on the ${suffix}`;
         } else {
             return `${prefix} landed ${times} ${suffix}`;
         }
     } else {
-        const suffix = `under a return to launch site configuration`;
+        const suffix = `under a return to launch site configuration.`;
         if (enhancedCore.data[field] === 0) {
-            return `This first stage has never landed ${suffix}`;
+            return ` This first stage has never landed ${suffix}`;
         } else {
             return `${prefix} landed ${times} ${suffix}`;
         }
@@ -45,11 +45,26 @@ const getPreviousLandings = (enhancedCore, field) => {
 
 const getPreviousLaunches = (core) => {
     if (core.flight === 1) {
-        return `This launch was the first time this core was used`;
+        return `will make its first flight during this mission.`;
     } else if (core.flight > 1) {
-        return `This launch was the ${ordinalSuffix(core.flight)} flight for this core`;
+        return `has previously flown ${core.flight} times before this mission.`;
     }
     return null;
+};
+
+const getLandingType = (core) => {
+    const landingType = (core.landing_attempt !== null) ? core.landing_type : '';
+    return (core.landing_attempt !== null) ? ` For this mission, the booster will attempt to land under a ${landingType} configuration.` : ``;
+}
+export const generateInfo = (core, enhancedCore) => {
+    const previousLaunches = getPreviousLaunches(core, enhancedCore);
+    const serial = enhancedCore.data.serial;
+    const first = (core.flight) === 1;
+    const previousLandingAsds = !first ? getPreviousLandings(enhancedCore, 'asds_landings') : '';
+    const previousLandingRtls = !first ? getPreviousLandings(enhancedCore, 'rtls_landings') : ''
+    const status = enhancedCore.data.status;
+    return `Booster ${serial} (block ${enhancedCore.data.block}) ${previousLaunches}${previousLandingAsds}${previousLandingRtls}${getLandingType(core)}`+
+    ` The latest status for this booster is: ${status}.`
 };
 export const CoreCard = ({ core, index }) => {
     const id = core.core;
@@ -58,7 +73,6 @@ export const CoreCard = ({ core, index }) => {
     const canDisplayEnhanced = (enhancedCore.hasLoaded && !enhancedCore.error);
     const serial = (canDisplayEnhanced) ? <small className='text-muted'> This core uses the serial number <strong>{enhancedCore.data.serial}</strong></small> : <Loader />;
     const moreLaunches = (canDisplayEnhanced && enhancedCore.data.reuse_count > 0) ? <MoreLaunches enhancedCore={enhancedCore.data} /> : null;
-    console.log('Enhanced Core', enhancedCore.data);
     return <Card>
         <Card.Body>
             <div className='row'>
@@ -69,41 +83,11 @@ export const CoreCard = ({ core, index }) => {
                     <LandingIndicators cores={[core]} />
                 </div>
             </div>
-            <div className='row'>
+            {canDisplayEnhanced && <div className='row'>
                 <div className='col'>
-                    <small className='text-muted'>Landing Type: {core.landing_attempt && core.landing_attempt !== null &&  core.landing_type}</small>
+                    <p className='text-muted'><small>{generateInfo(core, enhancedCore)}</small></p>
                 </div>
-            </div>
-            <div className='row'>
-                <div className='col'>
-                    <small className='text-muted'>{getPreviousLaunches(core)}</small>
-                </div>
-            </div>
-            <div className='row'>
-                <div className='col'>
-                    {serial}
-                </div>
-            </div>
-            <div className='row'>
-                <div className='col'>
-                   { canDisplayEnhanced && <small className='text-muted'>This core is using block {enhancedCore.data.block} </small> }
-                </div>
-            </div>
-            <div className='row'>
-                <div className='col'>
-                { canDisplayEnhanced && <small className='text-muted'>{getPreviousLandings(enhancedCore, 'rtls_landings')}</small> }
-                </div>
-            </div>
-            <div className='row'>
-                <div className='col'>
-                   { canDisplayEnhanced && <small className='text-muted'>{getPreviousLandings(enhancedCore, 'asds_landings')}</small> }
-                </div>
-            </div>
-            <div className='row'>
-                <div className='col'>
-                   { canDisplayEnhanced && <small className='text-muted'>The latest status on this booster: <strong>{enhancedCore.data.status}</strong> </small> }
-                </div>
-            </div>
+            </div>}
             <div className='row'>
                 <div className='col'>
                     {moreLaunches}
