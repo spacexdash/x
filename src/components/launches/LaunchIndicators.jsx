@@ -23,7 +23,7 @@ export const FairingIndicators = ({ fairings }) => {
         }
 
         if (fairing.net_landing) {
-            return <IconTooltip icon='bi bi-basket2 p-1' title={`Fairing ${index + 1} Caught and Secured`} />
+            return <IconTooltip icon='bi bi-droplet-half p-1' title={`Fairing ${index + 1} Caught and Secured`} />
         } 
         
         if (fairing.water_landing) {
