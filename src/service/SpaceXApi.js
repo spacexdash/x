@@ -47,6 +47,17 @@ export const getLaunchesByRocket = (id, page = 1, limit = defaultLaunchQuery.opt
     return wrapFetch(fn, "launches_upcoming");   
 }
 
+export const getLaunchesByFairing = (id, page = 1, limit = defaultLaunchQuery.options.limit) => {
+    const payload = { 
+        ...defaultLaunchQuery, 
+        query: { ...defaultLaunchQuery.query, upcoming: false, "fairings": { "$elemMatch" : { "fairing": id }} },
+        options: { ...defaultLaunchQuery.options, limit: limit, page: page }
+    };
+    const fn = () => fetch(`${domain}/launches/query`, { ...defaultPostConfiguration, body: JSON.stringify(payload) }).then(r => r.json());
+    return wrapFetch(fn, "launches_upcoming");   
+}
+
+
 export const getLaunches = (ids, page=1) => {
     const payload = { 
         ...defaultLaunchQuery,
@@ -162,6 +173,5 @@ export const getAllShips = () => {
     const fn = () => fetch(`${domain}/ships/query`, { ...defaultPostConfiguration, body: JSON.stringify(payload)  }).then((r) => r.json());
     return wrapFetch(fn, "ship_all");
 };
-
 
 export const wrapFetch = (fn, identifier) => runApi(fn, "spaceXApi", identifier);

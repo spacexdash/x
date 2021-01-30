@@ -1,8 +1,8 @@
 import { React, useEffect, useState } from 'react';
 import { MainLayout } from '../layout/MainLayout';
 import { useLocation, useParams } from 'react-router-dom';
-import { LAUNCHES_CORE, LAUNCHES_CREW, LAUNCHES_LAUNCHPAD, LAUNCHES_PAST, LAUNCHES_SHIP, LAUNCHES_UPCOMING, LAUNCHES_ROCKET, LAUNCHES_ALL } from './LaunchConsts';
-import { getCore, getLaunches, getShip, getUpcomingLaunches, getPastLaunches, getCrew, getLaunchpad, getLaunchesByRocket, getAllLaunches } from '../../service/SpaceXApi';
+import { LAUNCHES_CORE, LAUNCHES_CREW, LAUNCHES_LAUNCHPAD, LAUNCHES_PAST, LAUNCHES_SHIP, LAUNCHES_UPCOMING, LAUNCHES_ROCKET, LAUNCHES_ALL, LAUNCHES_FAIRING } from './LaunchConsts';
+import { getCore, getLaunches, getShip, getUpcomingLaunches, getPastLaunches, getCrew, getLaunchpad, getLaunchesByRocket, getAllLaunches, getLaunchesByFairing } from '../../service/SpaceXApi';
 import { LaunchCardRow } from './LaunchCardRow';
 import { Card, Button } from 'react-bootstrap';
 import { Loader } from 'react-bootstrap-typeahead';
@@ -23,6 +23,9 @@ const loadWithPreReq = (id, ctx, setLaunches, launches, page) => {
         case LAUNCHES_LAUNCHPAD:
             return getLaunchpad(id)
                 .then((res) => loadLaunchesFromIds(res.launches, setLaunches, launches, page))
+        case LAUNCHES_FAIRING:
+            return getLaunchesByFairing(id, page)
+                .then((d) => setLaunches({ isLoading: false, hasLoaded: true, data: { ...launches.data, ...d, docs: [...launches.data.docs, ...d.docs] } }));
         case LAUNCHES_ROCKET:
             return getLaunchesByRocket(id, page)
                 .then((d) => setLaunches({ isLoading: false, hasLoaded: true, data: { ...launches.data, ...d, docs: [...launches.data.docs, ...d.docs] } }));
@@ -79,6 +82,8 @@ const getLaunchesContext = (location) => {
         return LAUNCHES_LAUNCHPAD;
     } else if (location.pathname.includes(LAUNCHES_ROCKET)) {
         return LAUNCHES_ROCKET;
+    } else if (location.pathname.includes(LAUNCHES_FAIRING)) {
+        return LAUNCHES_FAIRING;
     }
 }
 

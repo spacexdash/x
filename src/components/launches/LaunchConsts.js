@@ -9,6 +9,7 @@ export const LAUNCH_PAGE_CONTEXT_CORES = "Cores";
 export const LAUNCH_PAGE_CONTEXT_LAUNCHPAD = "Launchpad";
 export const LAUNCH_PAGE_CONTEXT_LANDINGZONE = "Landingzone";
 export const LAUNCH_PAGE_CONTEXT_SHIPS = "Ships";
+export const LAUNCH_PAGE_CONTEXT_FAIRING = "Fairings";
 export const LAUNCH_PAGE_CONTEXT_TELEMETRY = "Telemetry";
 
 export const SEARCH_LAUNCH = "Launches";
@@ -26,3 +27,4 @@ export const LAUNCHES_ALL = "all";
 export const LAUNCHES_CREW = "crew";
 export const LAUNCHES_LAUNCHPAD = "launchpad";
 export const LAUNCHES_ROCKET = "rocket";
+export const LAUNCHES_FAIRING = "fairing";

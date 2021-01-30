@@ -2,7 +2,7 @@ import React from 'react';
 import { Nav } from 'react-bootstrap';
 import {
     LAUNCH_PAGE_CONTEXT_MISSION_GALERY,LAUNCH_PAGE_CONTEXT_CREW, LAUNCH_PAGE_CONTEXT_PAYLOAD, LAUNCH_PAGE_CONTEXT_ROCKET, LAUNCH_PAGE_CONTEXT_LAUNCHPAD,
-    LAUNCH_PAGE_CONTEXT_SHIPS, LAUNCH_PAGE_CONTEXT_CORES, LAUNCH_PAGE_CONTEXT_LANDINGZONE, LAUNCH_PAGE_CONTEXT_TELEMETRY
+    LAUNCH_PAGE_CONTEXT_SHIPS, LAUNCH_PAGE_CONTEXT_CORES, LAUNCH_PAGE_CONTEXT_LANDINGZONE, LAUNCH_PAGE_CONTEXT_FAIRING, LAUNCH_PAGE_CONTEXT_TELEMETRY
 } from './LaunchConsts';
 const ITEMS = [
     LAUNCH_PAGE_CONTEXT_ROCKET,
@@ -13,6 +13,7 @@ const ITEMS = [
     LAUNCH_PAGE_CONTEXT_LANDINGZONE,
     LAUNCH_PAGE_CONTEXT_SHIPS,
     LAUNCH_PAGE_CONTEXT_MISSION_GALERY,
+    LAUNCH_PAGE_CONTEXT_FAIRING,
     LAUNCH_PAGE_CONTEXT_TELEMETRY
 ];
 const ITEM_CONDITIONS = {
@@ -24,6 +25,7 @@ const ITEM_CONDITIONS = {
     [LAUNCH_PAGE_CONTEXT_LAUNCHPAD]: (launch) => "launchpad" in launch,
     [LAUNCH_PAGE_CONTEXT_LANDINGZONE]: (launch) => false, // todo needs query changes i think
     [LAUNCH_PAGE_CONTEXT_SHIPS]: (launch) => "ships" in launch && Array.isArray(launch.ships) && launch.ships.length > 0,
+    [LAUNCH_PAGE_CONTEXT_FAIRING]: (launch) => "fairings" in launch && Array.isArray(launch.fairings) && launch.fairings.length > 0,
     [LAUNCH_PAGE_CONTEXT_TELEMETRY]: (launch) => !launch.upcoming,
 };
 export const LaunchContextMenu = ({ setActiveContext, activeContext, launch }) => {
