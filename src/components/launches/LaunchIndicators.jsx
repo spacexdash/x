@@ -10,12 +10,28 @@ export const LandingIndicators = ({ cores }) => {
     })
 };
 export const FairingIndicators = ({ fairings }) => {
-    if (fairings && fairings.recovery_attempt && fairings.recovered !== null) {
-        return (fairings.recovered) ?
-            <IconTooltip icon='bi bi-life-preserver p-1' title={`Fairings Recovered`} /> :
-            <IconTooltip icon='bi bi-slash-circle p-1' title={`Fairings not Recovered`} />
-    }
-    return null;
+    if (! fairings) return null;
+
+    return fairings.filter((fairing) => fairing.water_attempt || fairing.net_attempt).map((fairing, index) => {
+        const wasDestroyed = (fairing.recovered !== null && !fairing.recovered);
+        const stillWaiting = (fairing.recovered === null);
+        if (stillWaiting) {
+            return null;
+        }
+        if (wasDestroyed) {
+            return <IconTooltip icon='bi bi-slash-circle p-1' title={`Fairings ${index + 1} not Recovered`} />
+        }
+
+        if (fairing.net_landing) {
+            return <IconTooltip icon='bi bi-basket2 p-1' title={`Fairing ${index + 1} Caught and Secured`} />
+        } 
+        
+        if (fairing.water_landing) {
+            return <IconTooltip icon='bi bi-life-preserver p-1' title={`Fairing ${index + 1} Secured from Ocean`} />
+
+        }
+        return null;
+    });
 }
 export const MissionIndicator = ({ success }) => {
     return (success) ?

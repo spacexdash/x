@@ -5,7 +5,8 @@ const config = {
         newsApi: "v2",
     },
     api: {
-        spaceXApi: "https://api.spacexdata.com",
+        // spaceXApi: "https://api.spacexdata.com",
+        spaceXApi: "https://stage.spacexdata.com",
         telemetryApi: "https://api.launchdashboard.space",
         newsApi: "https://spaceflightnewsapi.net"
     },
